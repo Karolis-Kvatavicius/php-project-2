@@ -1,16 +1,26 @@
 <?php
 session_start();
-      //Prisijungimai
-    $servername = "localhost";
-    $username = "root";
-    $password = "123";
+if(!isset($_SESSION['sesija']) || !$_SESSION['sesija'] == true){
+    header('Location:http://localhost/php-project-2/Donatos/login.php');
+    exit;
+}
+ if(isset($_POST['logout'])) {
+   session_destroy();
+   header('Location:http://localhost/php-project-2/Donatos/login.php');
+   exit;
+ }
 
-    
-    $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
-    if (!$conn) {
-       die("Connection failed: " . mysqli_connect_error());
-    }
-?>
+
+$servername = "localhost";
+$username = 'root';
+$password = '123';
+
+$conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+if (!$conn) {
+   die("Connection failed: " . mysqli_connect_error());
+}
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,5 +83,4 @@ session_start();
     <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Login</a>
     </li>
 </ul>
-
   </nav>

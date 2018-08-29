@@ -1,22 +1,16 @@
 <?php
 session_start();
+if(isset($_GET['logout']) && $_GET['logout'] == 1){
+    session_destroy();
+    header('Location:http://localhost/php-project-2/Donatos/login.php');
+    exit;
+}
 
 if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
     header('Location:http://localhost/php-project-2/Donatos/index.php');
     exit;
-    $servername = "localhost";
-    $username = "root";
-    $password = "123";
 
-    
-    //connect to server
-    $conn = new mysqli($servername, $username, $password);
-
-    //select database
-    $db_selected = $conn->select_db('wordpress2');
 }?>
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +35,51 @@ if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
       </style>
 </head>
 <body>
-  
+<?php
+
+$servername = "localhost";
+$username = 'root';
+$password = '123';
+
+$conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+if (!$conn) {
+   die("Connection failed: " . mysqli_connect_error());
+} 
+
+$slaptazodisDB='';
+
+if(isset($_POST['login'])){
+
+    $sql="SELECT Username, Slaptazodis FROM Users WHERE Username='".$_POST['username']."'";
+    
+     $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $slaptazodisDB = $row['Slaptazodis'];
+        
+    } else {
+        header('Location:http://localhost/php-project-2/Donatos/login.php');
+         exit;
+  }
+
+ 
+  if($_POST['password'] == $slaptazodisDB ) {
+
+    $_SESSION['sesija'] = true;
+    //session username naudosim index.php puslapyje
+    $_SESSION['username'] = $_POST['username'];
+    header('Location:http://localhost/php-project-2/Donatos/index.php');
+    exit;
+}
+    
+    }
+    
+    
+    
+    
+    ?>
+    
     <div align = "center">
     <div style = "width:300px; border: solid 1px #333333; " align = "left">
     <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
