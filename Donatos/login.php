@@ -1,5 +1,21 @@
 <?php
 session_start();
+
+if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
+    header('Location:http://localhost/php-project-2/Donatos/index.php');
+    exit;
+    $servername = "localhost";
+    $username = "root";
+    $password = "123";
+
+    
+    //connect to server
+    $conn = new mysqli($servername, $username, $password);
+
+    //select database
+    $db_selected = $conn->select_db('wordpress2');
+}?>
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

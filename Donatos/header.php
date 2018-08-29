@@ -1,3 +1,16 @@
+<?php
+session_start();
+      //Prisijungimai
+    $servername = "localhost";
+    $username = "root";
+    $password = "123";
+
+    
+    $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+    if (!$conn) {
+       die("Connection failed: " . mysqli_connect_error());
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
 <nav>
