@@ -9,19 +9,19 @@
     $conn = new mysqli($servername, $username, $password);
 
     //select database
-    $db_selected = mysqli_select_db($conn, 'wordpress2');
+    $db_selected = $conn->select_db('wordpress2');
 
     // If can't connect, then create database
     if (!$db_selected) {
         $sql = 'CREATE DATABASE wordpress2';
-        mysqli_query($conn, $sql);
+        $conn->query($sql);
         unset($sql);
         unset($conn);
-        $conn = mysqli_connect($servername, $username, $password, 'wordpress2'); 
+        $conn = new mysqli($servername, $username, $password, 'wordpress2'); 
         
     } else {
         unset($conn);
-        $conn = mysqli_connect($servername, $username, $password, 'wordpress2'); 
+        $conn = new mysqli($servername, $username, $password, 'wordpress2'); 
     }
 
     // delete tables if exist
@@ -69,4 +69,4 @@
     Nuoroda VARCHAR(30) NOT NULL,
     reg_date TIMESTAMP
     );";
-    mysqli_multi_query($conn, $sql);
+    $conn->multi_query($sql);
