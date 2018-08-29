@@ -22,7 +22,7 @@
   <li class="menu menu-hover">
     <a href="#" class="button">Mariaus</a>
     <ul class="submenu">
-      <li><a href="#">Menu item 1</a></li>
+      <li><a href="http://localhost/PHP-project-2/Mariaus/saras.html">Šaras</a></li>
       <li><a href="#">Menu item 2</a></li>
       <li><a href="#">Menu item 3</a></li>
       <li><a href="#">Menu item 4</a></li>
