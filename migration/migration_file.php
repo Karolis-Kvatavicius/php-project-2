@@ -6,7 +6,7 @@
     $password = "123";
 
     //connect to server
-    $conn = mysqli_connect($servername, $username, $password);
+    $conn = new mysqli($servername, $username, $password);
 
     //select database
     $db_selected = mysqli_select_db($conn, 'wordpress2');
