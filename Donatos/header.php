@@ -1,7 +1,8 @@
 <?php
-if(isset($_GET['logout']) && $_GET['logout'] == true) {
-   session_destroy();
-}
+session_start();
+// if(isset($_GET['logout']) && $_GET['logout'] == true) {
+//    session_destroy();
+// }
 
 $_SESSION['username'] = '';
 $servername = "localhost";

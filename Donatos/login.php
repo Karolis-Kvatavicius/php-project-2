@@ -1,15 +1,14 @@
 <?php
 session_start();
-if(isset($_GET['logout']) && $_GET['logout'] == 1){
-    session_destroy();
-    header('Location:http://localhost/php-project-2/Donatos/login.php');
-    exit;
-}
-if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
-    header('Location:http://localhost/php-project-2/Donatos/pages.php');
-    exit;
-}
-
+// if(isset($_GET['logout']) && $_GET['logout'] == 1){
+//     session_destroy();
+//     header('Location:http://localhost/php-project-2/Donatos/login.php');
+//     exit;
+// }
+// if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
+//     header('Location:http://localhost/php-project-2/Donatos/pages.php');
+//     exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,8 +70,8 @@ if(isset($_POST['login'])){
     
     
     ?>
-    
-    <div align = "center">
+      
+      <div align = "center">
     <div style = "width:300px; border: solid 1px #333333; " align = "left">
     <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
     <div style = "margin:30px">
