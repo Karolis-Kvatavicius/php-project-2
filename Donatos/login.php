@@ -7,10 +7,12 @@ if(isset($_GET['logout']) && $_GET['logout'] == 1){
 }
 
 if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
-    header('Location:http://localhost/php-project-2/Donatos/index.php');
-    exit;
+    // echo 'hello';
+    // header('Location:http://localhost/php-project-2/Donatos/login.php');
+    // exit;
 
-}?>
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

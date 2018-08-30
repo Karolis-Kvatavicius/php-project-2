@@ -1,10 +1,9 @@
 <?php
-session_start();
 if(!isset($_SESSION['sesija']) || !$_SESSION['sesija'] == true){
     header('Location:http://localhost/php-project-2/Donatos/login.php');
     exit;
 }
- if(isset($_POST['logout'])) {
+ if(isset($_POST['login'])) {
    session_destroy();
    header('Location:http://localhost/php-project-2/Donatos/login.php');
    exit;
@@ -80,7 +79,7 @@ if (!$conn) {
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Login</a>
+    <a class="button" name="login" href="http://localhost/php-project-2/Donatos/login.php">Login</a>
     </li>
 </ul>
   </nav>
