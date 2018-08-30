@@ -6,7 +6,7 @@ $Settings =
 // 'dbName' => 'marius',
 // 'dbUser' => 'root',
 // 'dbPass' => '123',
-// 'css' => ['stilius' => 'styles.css', 'styles-2.css', 'styles-3.css', 'styles-4.css']
-// 'js' => ['skriptas' => ]
+'css' => ['stilius' => 'assets/css/styles.css']
+'js' => ['skriptas' =>'assets/js/main.js', 'assets/plugins/jquery-1.11.3.min.js','assets/plugins/bootstrap/js/bootstrap.min.js',]
 
 ];
