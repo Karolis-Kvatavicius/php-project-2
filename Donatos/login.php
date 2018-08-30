@@ -70,7 +70,7 @@ if(isset($_POST['login'])){
     $_SESSION['sesija'] = true;
     //session username naudosim index.php puslapyje
     $_SESSION['username'] = $_POST['username'];
-    header('Location:http://localhost/php-project-2/Donatos/index.php');
+    header('Location:http://localhost/php-project-2/Admin/index.php');
     exit;
 }
     
