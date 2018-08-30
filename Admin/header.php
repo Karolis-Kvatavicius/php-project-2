@@ -14,7 +14,7 @@ $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
 </head>
 <body>
 <header>    
