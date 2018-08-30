@@ -21,10 +21,10 @@ $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
 <nav>
 <ul id="bar">
   <li class="menu menu-hover">
-    <a href="#" class="button">Mariaus</a>
+    <a href="#" class="button"><?php echo $_SESSION['username']?></a>
     <ul class="submenu">
 <?php 
-$sql = "SELECT Antraste, Turinys FROM Pages";
+$sql = "SELECT Antraste FROM Pages";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
@@ -38,7 +38,7 @@ if(mysqli_num_rows($result) > 0) {
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Logout</a>
+    <a class="button" href="http://localhost/php-project-2/Donatos/index.php">Logout</a>
   </li>
 </ul>
 </nav>
