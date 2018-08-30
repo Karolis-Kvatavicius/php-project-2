@@ -3,10 +3,8 @@
 //     header('Location:http://localhost/php-project-2/Donatos/login.php');
 //     exit;
 // }
- if(isset($_POST['logout'])) {
+ if(isset($_GET['logout']) && $_GET['logout'] == true) {
    session_destroy();
-   header('Location:http://localhost/php-project-2/Donatos/login.php');
-   exit;
  }
 
 
@@ -32,7 +30,7 @@ if (!$conn) {
 <body>
 <nav>
 <ul id="bar">
-<?php switch(@$_SESSION['username']) {
+<?php switch($_SESSION['username']) {
 case 'Jonas': ?>
   <li class="menu menu-hover">
     <a href="#" class="button">Jono</a>
@@ -44,7 +42,7 @@ case 'Jonas': ?>
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Logout</a>
+    <a class="button" href="http://localhost/php-project-2/Donatos/header.php?logout=true">Logout</a>
   </li>
 <?php break;
 case 'Marius':?>
@@ -58,7 +56,7 @@ case 'Marius':?>
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Logout</a>
+    <a class="button" href="http://localhost/php-project-2/Donatos/login.php?logout=true">Logout</a>
   </li>
   <?php break;
   case 'Dainius':?>
@@ -72,7 +70,7 @@ case 'Marius':?>
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Logout</a>
+    <a class="button" href="http://localhost/php-project-2/Donatos/login.php?logout=true">Logout</a>
   </li>
   <?php break;
   case 'Sarunas':?>
@@ -86,7 +84,7 @@ case 'Marius':?>
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Logout</a>
+    <a class="button" href="http://localhost/php-project-2/Donatos/login.php?logout=true">Logout</a>
   </li>
   <?php break;
   case 'Nikolajus':?>
@@ -100,7 +98,7 @@ case 'Marius':?>
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Logout</a>
+    <a class="button" href="http://localhost/php-project-2/Donatos/login.php?logout=true">Logout</a>
   </li>
   <?php break;
   default:?>
