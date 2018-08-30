@@ -6,22 +6,14 @@
     $password = "123";
 
     //connect to server
-<<<<<<< HEAD
     $conn = mysqli_connect($servername, $username, $password);
 
     //select database
     $db_selected = mysqli_select_db($conn, 'wordpress2');
-=======
-    $conn = new mysqli($servername, $username, $password);
-
-    //select database
-    $db_selected = $conn->select_db('wordpress2');
->>>>>>> 75aae2d106bc1b95dfa3e2272e4601714ba0cdb5
 
     // If can't connect, then create database
     if (!$db_selected) {
         $sql = 'CREATE DATABASE wordpress2';
-<<<<<<< HEAD
         mysqli_query($conn, $sql);
         unset($sql);
         unset($conn);
@@ -30,16 +22,6 @@
     } else {
         unset($conn);
         $conn = mysqli_connect($servername, $username, $password, 'wordpress2'); 
-=======
-        $conn->query($sql);
-        unset($sql);
-        unset($conn);
-        $conn = new mysqli($servername, $username, $password, 'wordpress2'); 
-        
-    } else {
-        unset($conn);
-        $conn = new mysqli($servername, $username, $password, 'wordpress2'); 
->>>>>>> 75aae2d106bc1b95dfa3e2272e4601714ba0cdb5
     }
 
     // delete tables if exist
@@ -87,8 +69,4 @@
     Nuoroda VARCHAR(30) NOT NULL,
     reg_date TIMESTAMP
     );";
-<<<<<<< HEAD
     mysqli_multi_query($conn, $sql);
-=======
-    $conn->multi_query($sql);
->>>>>>> 75aae2d106bc1b95dfa3e2272e4601714ba0cdb5

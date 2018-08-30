@@ -4,16 +4,13 @@ if(isset($_GET['logout']) && $_GET['logout'] == true) {
 }
 
 $_SESSION['username'] = '';
-
 $servername = "localhost";
 $username = 'root';
 $password = '123';
-
 $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
 if (!$conn) {
    die("Connection failed: " . mysqli_connect_error());
 }
-
  ?>
 <!DOCTYPE html>
 <html lang="en">
