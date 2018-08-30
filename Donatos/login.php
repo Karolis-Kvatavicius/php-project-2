@@ -6,12 +6,12 @@ if(isset($_GET['logout']) && $_GET['logout'] == 1){
     exit;
 }
 
-if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
+// if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
     // echo 'hello';
     // header('Location:http://localhost/php-project-2/Donatos/login.php');
     // exit;
 
-}
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
