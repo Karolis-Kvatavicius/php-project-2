@@ -6,6 +6,7 @@ if(isset($_GET['logout']) && $_GET['logout'] == 1){
     exit;
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
