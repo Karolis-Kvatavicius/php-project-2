@@ -9,6 +9,7 @@ if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
     header('Location:http://localhost/php-project-2/Donatos/pages.php');
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
