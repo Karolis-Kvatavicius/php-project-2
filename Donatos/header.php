@@ -2,6 +2,7 @@
 if(isset($_GET['logout']) && $_GET['logout'] == true) {
    session_destroy();
 }
+
 $_SESSION['username'] = '';
 $servername = "localhost";
 $username = 'root';
