@@ -5,6 +5,7 @@ if(isset($_GET['logout']) && $_GET['logout'] == 1){
     header('Location:http://localhost/php-project-2/Donatos/login.php');
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
