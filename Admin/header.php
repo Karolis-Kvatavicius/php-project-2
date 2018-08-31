@@ -46,15 +46,24 @@ if (isset($_GET['pageID'])) {
 if(isset($_POST['upload-page'])) {
   include 'fileUpload.php';
   $sql = "INSERT INTO pages (Antraste, Turinys, UserID)
-  VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."')";
+  VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."');";
   $_SESSION['antraste'] = $_POST['heading'];
   $_SESSION['turinys'] = $_POST['content'];
-  if (mysqli_query($conn, $sql)) {
+  if (mysqli_multi_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-  
+  unset($sql);
+  $sql ="INSERT INTO images (Pavadinimas, Nuoroda)
+  VALUES ('".$_POST['heading']."', '".$target_file."');";
+  $_SESSION['antraste'] = $_POST['heading'];
+  $_SESSION['turinys'] = $_POST['content'];
+  if (mysqli_multi_query($conn, $sql)) {
+     echo "New record created successfully";
+  } else {
+     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
 }
 
 if(isset($_POST['update-page'])) {
