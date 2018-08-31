@@ -18,6 +18,10 @@ $username = "root";
 $password = "123";
 
 $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+
+$sql = "SELECT id FROM users WHERE Username='".$_SESSION['username']."'";
+$userID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+unset($sql);
 ?>
 <!DOCTYPE html5>
 <html>
@@ -33,16 +37,17 @@ $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
 <nav>
 <ul id="bar">
   <li class="menu menu-hover">
-    <a href="#" class="button user"><?php echo $_SESSION['username']?></a>
+    <p class="button user"><?php echo $_SESSION['username']?></p>
     <ul class="submenu">
 <?php 
-//patobulint uzklausa, kad imtu tik prisijungusio zmogaus dizainus is db
-$sql = "SELECT Antraste FROM pages";
+//!!! use of undefined constant !!!
+@$sql = "SELECT Antraste FROM pages WHERE UserID='".$userID[id]."'";
 $result = mysqli_query($conn, $sql);
+unset($sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-       echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+       echo "<li class=\"usersPages\"><a href=".'#'.">".$row['Antraste']."</a></li>";
    }
 } else {
    echo "<li><p>0 results</p></li>";

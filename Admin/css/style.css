@@ -87,11 +87,18 @@ nav {
     border: none;
     opacity: 0.7;
     position: fixed;
-    top: 200px;
-    left: 20px;
+    bottom: 150px;
+    right: 20px;
 }
 
 .user {
     text-decoration: underline;
     color: darkcyan;
+    font-size: 22px;
+    margin: 0;
+}
+
+.usersPages {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

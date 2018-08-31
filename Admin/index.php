@@ -4,8 +4,8 @@ PhpConsole\Helper::register(); // it will register global PC class
 include 'header.php';
 
 if(isset($_POST['upload-page'])) {
-$sql = "INSERT INTO Pages (Antraste, Turinys)
-VALUES ('".$_POST['heading']."', '".$_POST['content']."')";
+$sql = "INSERT INTO pages (Antraste, Turinys, UserID)
+VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."')";
 
 if (mysqli_query($conn, $sql)) {
    echo "New record created successfully";
@@ -30,7 +30,7 @@ if (mysqli_query($conn, $sql)) {
 
 <?php
 include 'footer.php';
-PC::debug($_SESSION['sesija'], 'tag');
+PC::debug($userID, 'tag');
 // PC::tag($var);
 
 
