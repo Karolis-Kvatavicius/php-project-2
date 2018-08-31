@@ -1,4 +1,3 @@
-// import {autosize} from 'autosize.js';
 $(function() {
     $("#file").on("change", function()
     {

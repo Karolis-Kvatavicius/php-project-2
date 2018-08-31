@@ -12,8 +12,8 @@ include 'header.php';
 <div>
 <input type="submit" name="upload-page" value="Upload" id="upload">
 <input type="submit" name="update-page" value="Update" id="update">
-<!-- <input id="uploadFile" type="file" name="image" class="img" /> -->
 <input type="file" name="imageUpload" value="Add image" id="file">
+<img onerror="this.src='images/netrinti/Default.png'" width="150px" height="100px" class="pagePhoto" src="<?php echo $_SESSION['imgPath'];?>" alt="">
 <div id="imagePreview"></div>
 </div>
 </form>
