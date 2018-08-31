@@ -56,7 +56,7 @@
     //create PAGES table
     $sql .= "CREATE TABLE Pages (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Antraste VARCHAR(30) NOT NULL,
+    Antraste VARCHAR(30) UNIQUE NOT NULL,
     Turinys LONGTEXT CHARACTER SET utf8 NOT NULL,
     UserID INT(30) NOT NULL,
     reg_date TIMESTAMP

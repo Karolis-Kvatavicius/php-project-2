@@ -6,11 +6,12 @@ include 'header.php';
 <div id="whitespace"></div>
 <form id="page-form" action="" method="POST">
 <div id="editor">
-<input type="text" name="heading" id="heading">
-<textarea name="content" id="content" cols="100" rows="23"></textarea>
+<input type="text" name="heading" id="heading" value="<?php echo $_SESSION['antraste'] ?>">
+<textarea name="content" id="content" cols="100" rows="23"><?php echo $_SESSION['turinys'] ?></textarea>
 </div>
 <div>
 <input type="submit" name="upload-page" value="Upload" id="upload">
+<input type="submit" name="update-page" value="Update" id="update">
 </div>
 </form>
 
@@ -19,6 +20,6 @@ include 'header.php';
 <?php
 include 'footer.php';
 PC::debug($userID, 'tag');
-// PC::tag($var);
+// PC::tag($result);
 
 
