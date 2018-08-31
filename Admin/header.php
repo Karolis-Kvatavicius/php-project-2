@@ -44,6 +44,7 @@ if (isset($_GET['pageID'])) {
 }
 
 if(isset($_POST['upload-page'])) {
+  include 'fileUpload.php';
   $sql = "INSERT INTO pages (Antraste, Turinys, UserID)
   VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."')";
   $_SESSION['antraste'] = $_POST['heading'];
