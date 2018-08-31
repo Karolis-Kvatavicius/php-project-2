@@ -63,7 +63,8 @@ if(isset($_POST['update-page'])) {
   } else {
       echo "Error updating record: " . mysqli_error($conn);
   }
-  
+  header('Location:http://localhost/php-project-2/Admin/index.php?pageID='.$_GET['pageID']);
+  exit;
   
   
 }
