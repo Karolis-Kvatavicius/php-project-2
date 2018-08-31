@@ -49,17 +49,20 @@ if(isset($_POST['upload-page'])) {
   VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."');";
   $_SESSION['antraste'] = $_POST['heading'];
   $_SESSION['turinys'] = $_POST['content'];
-  if (mysqli_multi_query($conn, $sql)) {
+  if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   unset($sql);
-  $sql ="INSERT INTO images (Pavadinimas, Nuoroda)
-  VALUES ('".$_POST['heading']."', '".$target_file."');";
+  $sql = "SELECT id FROM pages WHERE Antraste='".$_POST['heading']."'";
+  $pageID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+  unset($sql);
+  $sql ="INSERT INTO images (Pavadinimas, Nuoroda, PageID)
+  VALUES ('".$_POST['heading']."', '".$target_file."', '".$pageID['id']."');";
   $_SESSION['antraste'] = $_POST['heading'];
   $_SESSION['turinys'] = $_POST['content'];
-  if (mysqli_multi_query($conn, $sql)) {
+  if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -99,8 +102,7 @@ if(isset($_POST['update-page'])) {
     <p class="button user"><?php echo $_SESSION['username']?></p>
     <ul class="submenu">
 <?php 
-//!!! use of undefined constant !!!
-@$sql = "SELECT Antraste, id FROM pages WHERE UserID='".$userID[id]."'";
+$sql = "SELECT Antraste, id FROM pages WHERE UserID='".$userID['id']."'";
 $result = mysqli_query($conn, $sql);
 unset($sql);
 

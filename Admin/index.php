@@ -24,5 +24,5 @@ include 'header.php';
 include 'footer.php';
 PC::debug($userID, 'userID');
 PC::debug($_SESSION['pageID'], 'pageID');
-
+// PC::debug($pageID, 'On Page creation');
 
