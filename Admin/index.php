@@ -12,6 +12,7 @@ include 'header.php';
 <div>
 <input type="submit" name="upload-page" value="Upload" id="upload">
 <input type="submit" name="update-page" value="Update" id="update">
+<input type="file" name="attach-file" value="Add image" id="file">
 </div>
 </form>
 
