@@ -20,7 +20,7 @@ unset($sql);
 <nav>
 <ul id="bar">
     <li class="menu menu-hover">
-    <a href="#" class="button"> Jonas</a>
+    <a href="#" class="button">Jono</a>
     <ul class="submenu">
     <?php
     $sql = "SELECT Antraste FROM pages WHERE UserID='1'";
@@ -35,10 +35,41 @@ if(mysqli_num_rows($result) > 0) {
     </ul>
   </li>
   <li class="menu menu-hover">
+     <a href="#" class="button">Donatos</a>
+    <ul class="submenu">
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='2'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+}
+?>
+
+    </ul>
+  </li>
+  <li class="menu menu-hover">
      <a href="#" class="button">Mariaus</a>
     <ul class="submenu">
     <?php
     $sql = "SELECT Antraste FROM pages WHERE UserID='3'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+}
+?>
+    </ul>
+  </li>
+  <li class="menu menu-hover">
+     <a href="#" class="button">Karolio</a>
+    <ul class="submenu">
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='4'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
