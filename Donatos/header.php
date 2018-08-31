@@ -1,17 +1,18 @@
 <?php
-session_start();
+// session_start();
 // if(isset($_GET['logout']) && $_GET['logout'] == true) {
 //    session_destroy();
 // }
 
-$_SESSION['username'] = '';
-$servername = "localhost";
-$username = 'root';
-$password = '123';
-$conn = mysqli_connect($servername, $username, $password, 'wordpress2');
-if (!$conn) {
-   die("Connection failed: " . mysqli_connect_error());
-}
+// $_SESSION['username'] = '';
+// $servername = "localhost";
+// $username = 'root';
+// $password = '123';
+
+// $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+// if (!$conn) {
+//    die("Connection failed: " . mysqli_connect_error());
+// }
  ?>
 <!DOCTYPE html>
 <html lang="en">
