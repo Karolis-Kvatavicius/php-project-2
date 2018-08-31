@@ -22,6 +22,19 @@ $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
 $sql = "SELECT id FROM users WHERE Username='".$_SESSION['username']."'";
 $userID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 unset($sql);
+
+if(isset($_POST['upload-page'])) {
+  $sql = "INSERT INTO pages (Antraste, Turinys, UserID)
+  VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."')";
+  
+  if (mysqli_query($conn, $sql)) {
+     echo "New record created successfully";
+  } else {
+     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  
+}
+
 ?>
 <!DOCTYPE html5>
 <html>
@@ -52,6 +65,7 @@ if(mysqli_num_rows($result) > 0) {
 } else {
    echo "<li><p>0 results</p></li>";
 }
+unset($result);
  ?>
     </ul>
   </li>
