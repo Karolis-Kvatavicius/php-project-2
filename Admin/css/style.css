@@ -10,7 +10,7 @@ textarea {
     border: 1.5px solid darkblue;
     outline: none;
     display: block;
-    padding: 10px;
+    padding: 20px;
 }
 
 a {
@@ -92,6 +92,14 @@ nav {
     right: 20px;
 }
 
+#upload:hover {
+    background-color: green;
+}
+
+#update:hover {
+    background-color: green;
+}
+
 #update {
     background-color: black;
     color: white;
@@ -114,4 +122,20 @@ nav {
 .usersPages {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.menu {
+    overflow: hidden;
+    width: 250px;
+}
+
+.pagesLinks:hover {
+    color: green;
+}
+
+.logout:hover {
+    background-color: red;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
 }

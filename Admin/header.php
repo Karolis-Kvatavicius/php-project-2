@@ -46,7 +46,8 @@ if (isset($_GET['pageID'])) {
 if(isset($_POST['upload-page'])) {
   $sql = "INSERT INTO pages (Antraste, Turinys, UserID)
   VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."')";
-
+  $_SESSION['antraste'] = $_POST['heading'];
+  $_SESSION['turinys'] = $_POST['content'];
   if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
@@ -57,7 +58,8 @@ if(isset($_POST['upload-page'])) {
 
 if(isset($_POST['update-page'])) {
   $sql = "UPDATE pages SET Turinys='".$_POST['content']."', Antraste='".$_POST['heading']."' WHERE id=".$_SESSION['pageID'];
-
+  $_SESSION['antraste'] = $_POST['heading'];
+  $_SESSION['turinys'] = $_POST['content'];
   if (mysqli_query($conn, $sql)) {
       echo "Record updated successfully";
   } else {
@@ -94,7 +96,7 @@ unset($sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-       echo "<li class=\"usersPages\"><a href=\"http://localhost/php-project-2/Admin/index.php?pageID=".$row['id']."\">".$row['Antraste']."</a></li>";
+       echo "<li class=\"usersPages\"><a class=\"pagesLinks\" href=\"http://localhost/php-project-2/Admin/index.php?pageID=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 } else {
    echo "<li><p>0 results</p></li>";
@@ -104,7 +106,7 @@ unset($result);
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Admin/index.php?logout=true">Logout</a>
+    <a class="button logout" href="http://localhost/php-project-2/Admin/index.php?logout=true">Logout</a>
   </li>
 </ul>
 </nav>
