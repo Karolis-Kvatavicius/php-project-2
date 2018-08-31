@@ -33,11 +33,11 @@ $conn = mysqli_connect($servername, $username, $password, 'wordpress2');
 <nav>
 <ul id="bar">
   <li class="menu menu-hover">
-    <a href="#" class="button"><?php echo $_SESSION['username']?></a>
+    <a href="#" class="button user"><?php echo $_SESSION['username']?></a>
     <ul class="submenu">
 <?php 
 //patobulint uzklausa, kad imtu tik prisijungusio zmogaus dizainus is db
-$sql = "SELECT Antraste FROM Pages";
+$sql = "SELECT Antraste FROM pages";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
