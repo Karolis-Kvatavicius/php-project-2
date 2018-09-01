@@ -77,7 +77,7 @@ if(isset($_POST['upload-page'])) {
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
+  header('Location:'.$Settings['url'].'Admin/index.php?pageID='.$_SESSION['pageID']);
   exit;
 }
 
@@ -106,9 +106,30 @@ if(isset($_POST['update-page'])) {
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
-  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
+  header('Location:'.$Settings['url'].'Admin/index.php?pageID='.$_SESSION['pageID']);
   exit;
  
+}
+
+if(isset($_POST['DeletePage'])) {
+
+$sql = "DELETE FROM pages WHERE id=".$_SESSION['pageID'];
+if (mysqli_query($conn, $sql)) {
+   echo "Record deleted successfully";
+} else {
+   echo "Error deleting record: " . mysqli_error($conn);
+}
+
+$sql = "DELETE FROM images WHERE id=".$_SESSION['pageID'];
+if (mysqli_query($conn, $sql)) {
+   echo "Record deleted successfully";
+} else {
+   echo "Error deleting record: " . mysqli_error($conn);
+}
+
+header('Location:'.$Settings['url'].'Admin/index.php');
+exit;
+
 }
 
 ?>
@@ -138,7 +159,7 @@ if(mysqli_num_rows($result) > 0) {
        echo "<li class=\"usersPages\"><a class=\"pagesLinks\" href=\"".$Settings['url']."Admin/index.php?pageID=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 } else {
-   echo "<li><p>0 results</p></li>";
+  //  echo "<li><p>0 results</p></li>";
 }
 unset($result);
  ?>
