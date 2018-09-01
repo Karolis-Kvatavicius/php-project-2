@@ -112,3 +112,13 @@ textarea {
     background-size: cover;
     display: inline-block;
 }
+
+.submenu {
+    position: absolute;
+    top: 150px;
+    right: 20px;
+}
+
+.pagesLinks {
+    color: black;
+}
