@@ -1,14 +1,6 @@
 <?php
 session_start();
-// if(isset($_GET['logout']) && $_GET['logout'] == 1){
-//     session_destroy();
-//     header('Location:http://localhost/php-project-2/Donatos/login.php');
-//     exit;
-// }
-// if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
-//     header('Location:http://localhost/php-project-2/Donatos/pages.php');
-//     exit;
-// }
+include '../settings.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +44,7 @@ if(isset($_POST['login'])){
         $slaptazodisDB = $row['Slaptazodis'];
         
     } else {
-        header('Location:http://www.projektas.test/Donatos/login.php');
+        header('Location:'.$Settings['url'].'Donatos/login.php');
          exit;
   }
  
@@ -60,7 +52,7 @@ if(isset($_POST['login'])){
     $_SESSION['sesija'] = true;
     //session username naudosim index.php puslapyje
     $_SESSION['username'] = $_POST['username'];
-    header('Location:http://www.projektas.test/Admin/index.php');
+    header('Location:'.$Settings['url'].'Admin/index.php');
     exit;
 }
     

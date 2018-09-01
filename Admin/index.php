@@ -15,15 +15,21 @@ include 'header.php';
 <div>
 <input type="submit" name="upload-page" value="Upload" id="upload">
 <input type="submit" name="update-page" value="Update" id="update">
-<input type="file" name="imageUpload" value="Add image" id="file">
+<input type="file" name="imageUpload" value="Add image" id="file" onChange="makeFileList();"/>
 <input type="submit" name="DeletePage" value="Delete Current Page" id="DeletePage">
 <p id="imageAdd">Current page photo:</p>
 <img src="<?= $_SESSION['nuoroda'] ?>" onerror="this.src='<?php echo $projectSettings['defaultImg']?>'" width="300px" height="200px" class="pagePhoto" alt="">
 <div id="imagePreview"></div>
 </div>
+
 </form>
 <div class="whitespace2"></div>
-
+<p>
+  <strong>Files You Selected:</strong>
+</p>
+<ul id="fileList">
+     <li>No Files Selected</li>
+</ul>
 
 
 <?php
