@@ -126,7 +126,7 @@ if(mysqli_num_rows($result) > 0) {
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Login</a>
+    <a class="button" href="http://www.projektas.test/Donatos/login.php">Login</a>
   </li>
 </ul>
   </nav>
