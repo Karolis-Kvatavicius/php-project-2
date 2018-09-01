@@ -66,24 +66,28 @@ if(isset($_POST['upload-page'])) {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   unset($sql);
-  $sql = "SELECT id FROM pages WHERE Antraste='".$_POST['heading']."'";
+  $sql = "SELECT id FROM pages WHERE Antraste='".$_SESSION['antraste']."'";
   $pageID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
   unset($sql);
   $sql ="INSERT INTO images (Pavadinimas, Nuoroda, PageID)
-  VALUES ('".$_POST['heading']."', '".$target_file."', '".$pageID['id']."');";
-  $_SESSION['antraste'] = $_POST['heading'];
-  $_SESSION['turinys'] = $_POST['content'];
+  VALUES ('".$_SESSION['antraste']."', '".$target_file."', '".$pageID['id']."');";
+  $_SESSION['pageID'] = $pageID['id'];
   if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-  // header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_GET['pageID']);
-  // exit;
+  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
+  exit;
 }
 
 if(isset($_POST['update-page'])) {
   include 'fileUpload.php';
+  $sql = "SELECT id FROM pages WHERE Antraste='".$_SESSION['antraste']."'";
+  $pageID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+  unset($sql);
+  $_SESSION['pageID'] = $pageID['id'];
+
   $sql = "UPDATE pages SET Turinys='".$_POST['content']."', Antraste='".$_POST['heading']."' WHERE id=".$_SESSION['pageID'];
   $_SESSION['antraste'] = $_POST['heading'];
   $_SESSION['turinys'] = $_POST['content'];
@@ -97,13 +101,12 @@ if(isset($_POST['update-page'])) {
 
   $sql = "UPDATE images SET Nuoroda='".$target_file."' WHERE PageID=".$_SESSION['pageID'];
   $_SESSION['nuoroda'] = $target_file;
-
   if (mysqli_query($conn, $sql)) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
-  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_GET['pageID']);
+  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
   exit;
  
 }

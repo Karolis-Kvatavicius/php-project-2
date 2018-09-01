@@ -1,5 +1,5 @@
 <?php
-$target_dir = $Settings['imgDir'];
+$target_dir = $projectSettings['imgDir'];
 $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
