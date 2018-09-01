@@ -46,6 +46,7 @@ if(mysqli_num_rows($result) > 0) {
             echo "<li><a href=http://localhost/php-project-2/Donatos/".$row['Antraste'].".php".">".$row['Antraste']."</a></li>";
    }
 }
+
 ?>
 
     </ul>
