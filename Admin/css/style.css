@@ -69,13 +69,17 @@ nav {
     border-radius: 5px;
     outline: none;
     margin-bottom: 20px;
-    margin-top: 80px;
+    margin-top: 50px;
     min-width: 300px;
     border: 1px solid darkblue;
 }
 
-#whitespace {
-    height: 120px;
+.whitespace {
+    height: 40px;
+}
+
+.whitespace2 {
+    height: 180px;
 }
 
 #editor {
@@ -89,9 +93,10 @@ nav {
     padding: 20px;
     border: none;
     opacity: 0.7;
-    position: fixed;
-    bottom: 150px;
-    right: 20px;
+    position: absolute;
+    bottom: 170px;
+    right: 580px;
+    cursor: pointer;
 }
 
 #upload:hover {
@@ -109,9 +114,28 @@ nav {
     padding: 20px;
     border: none;
     opacity: 0.7;
+    position: absolute;
+    bottom: 170px;
+    right: 450px;
+    cursor: pointer;
+}
+
+#deletePage {
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    opacity: 0.7;
     position: fixed;
-    bottom: 250px;
+    top: 20px;
     right: 20px;
+    cursor: pointer;
+}
+
+#deletePage:hover {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .user {
@@ -144,26 +168,40 @@ nav {
 
 #file {
     position: absolute;
-    bottom: 70px;
+    bottom: 180px;
     left: 400px;
 }
 
 #imagePreview {
     position: absolute;
-    bottom: 100px;
-    right: 200px;
+    bottom: 140px;
+    right: 750px;
     border: 2px solid red;
     width: 100px;
     height: 100px;
     background-position: center center;
     background-size: cover;
-    /* -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3); */
     display: inline-block;
 }
 
 .pagephoto {
     position: absolute;
-    bottom: 250px;
-    right: 180px;
+    bottom: 360px;
+    right: 30px;
     border: 2px solid green;
+}
+
+#imageAdd {
+    position: absolute;
+    right: 200px;
+    top: 220px;
+}
+
+#currentPage {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: darkblue;
+    margin: 0;
+    letter-spacing: 2px;
 }

@@ -52,7 +52,7 @@ if(isset($_POST['login'])){
         $slaptazodisDB = $row['Slaptazodis'];
         
     } else {
-        header('Location:http://localhost/php-project-2/Donatos/login.php');
+        header('Location:http://www.projektas.test/Donatos/login.php');
          exit;
   }
  
@@ -60,7 +60,7 @@ if(isset($_POST['login'])){
     $_SESSION['sesija'] = true;
     //session username naudosim index.php puslapyje
     $_SESSION['username'] = $_POST['username'];
-    header('Location:http://localhost/php-project-2/Admin/index.php');
+    header('Location:http://www.projektas.test/Admin/index.php');
     exit;
 }
     

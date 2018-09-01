@@ -59,6 +59,7 @@
     Antraste VARCHAR(30) UNIQUE NOT NULL,
     Turinys LONGTEXT CHARACTER SET utf8 NOT NULL,
     UserID INT(30) NOT NULL,
+    Slug VARCHAR(500) UNIQUE NULL,
     reg_date TIMESTAMP
     );";
 

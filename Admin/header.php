@@ -3,44 +3,54 @@ session_start();
 
 if(isset($_GET['logout']) && $_GET['logout'] == true) {
   session_destroy();
-  header('Location:http://localhost/php-project-2/Donatos/index.php');
+  header('Location:'.$Settings['url'].'Donatos/index.php');
   exit;
 }
 
 if(!isset($_SESSION['sesija']) && $_SESSION['sesija'] != true) {
   session_destroy();
-  header('Location:http://localhost/php-project-2/Donatos/index.php');
+  header('Location:'.$Settings['url'].'Donatos/index.php');
   exit;
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "123";
-
-$conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+$conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']);
 $_SESSION['antraste'] = '';
 $_SESSION['turinys'] = '';
 $_SESSION['pageID'] = '';
+$_SESSION['nuoroda'] = '';
 
 $sql = "SELECT id FROM users WHERE Username='".$_SESSION['username']."'";
 $userID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 unset($sql);
 
 if (isset($_GET['pageID'])) {
-  $sql = "SELECT Antraste, Turinys FROM pages WHERE id='".$_GET['pageID']."'";
+  $sql = "SELECT Antraste, Turinys FROM pages WHERE id='".$_GET['pageID']."';";
   $result = mysqli_query($conn, $sql);
-  unset($sql);
   $_SESSION['pageID'] = $_GET['pageID'];
 
   if(mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $_SESSION['antraste'] .= $row['Antraste'];
-        $_SESSION['turinys'] .= $row['Turinys'];
-        
+        $_SESSION['turinys'] .= $row['Turinys'];   
     }
   } else {
     echo "No title";
   }
+  unset($sql);
+  unset($result);
+
+  $sql = "SELECT Nuoroda FROM images WHERE PageID='".$_GET['pageID']."';";
+  $result = mysqli_query($conn, $sql);
+
+  if(mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        $_SESSION['nuoroda'] .= $row['Nuoroda'];   
+    }
+  } else {
+    echo "No title";
+  }
+  unset($sql);
+  unset($result);
 }
 
 if(isset($_POST['upload-page'])) {
@@ -49,39 +59,56 @@ if(isset($_POST['upload-page'])) {
   VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."');";
   $_SESSION['antraste'] = $_POST['heading'];
   $_SESSION['turinys'] = $_POST['content'];
+  $_SESSION['nuoroda'] = $target_file;
   if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   unset($sql);
-  $sql = "SELECT id FROM pages WHERE Antraste='".$_POST['heading']."'";
+  $sql = "SELECT id FROM pages WHERE Antraste='".$_SESSION['antraste']."'";
   $pageID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
   unset($sql);
   $sql ="INSERT INTO images (Pavadinimas, Nuoroda, PageID)
-  VALUES ('".$_POST['heading']."', '".$target_file."', '".$pageID['id']."');";
-  $_SESSION['antraste'] = $_POST['heading'];
-  $_SESSION['turinys'] = $_POST['content'];
+  VALUES ('".$_SESSION['antraste']."', '".$target_file."', '".$pageID['id']."');";
+  $_SESSION['pageID'] = $pageID['id'];
   if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
+  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
+  exit;
 }
 
 if(isset($_POST['update-page'])) {
+  include 'fileUpload.php';
+  $sql = "SELECT id FROM pages WHERE Antraste='".$_SESSION['antraste']."'";
+  $pageID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+  unset($sql);
+  $_SESSION['pageID'] = $pageID['id'];
+
   $sql = "UPDATE pages SET Turinys='".$_POST['content']."', Antraste='".$_POST['heading']."' WHERE id=".$_SESSION['pageID'];
   $_SESSION['antraste'] = $_POST['heading'];
   $_SESSION['turinys'] = $_POST['content'];
+  
   if (mysqli_query($conn, $sql)) {
       echo "Record updated successfully";
   } else {
       echo "Error updating record: " . mysqli_error($conn);
   }
-  header('Location:http://localhost/php-project-2/Admin/index.php?pageID='.$_GET['pageID']);
+  unset($sql);
+
+  $sql = "UPDATE images SET Nuoroda='".$target_file."' WHERE PageID=".$_SESSION['pageID'];
+  $_SESSION['nuoroda'] = $target_file;
+  if (mysqli_query($conn, $sql)) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . mysqli_error($conn);
+}
+  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
   exit;
-  
-  
+ 
 }
 
 ?>
@@ -92,7 +119,7 @@ if(isset($_POST['update-page'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="<?= $projectSettings['css']['stilius']?>">
 </head>
 <body>
 <header>    
@@ -108,7 +135,7 @@ unset($sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-       echo "<li class=\"usersPages\"><a class=\"pagesLinks\" href=\"http://localhost/php-project-2/Admin/index.php?pageID=".$row['id']."\">".$row['Antraste']."</a></li>";
+       echo "<li class=\"usersPages\"><a class=\"pagesLinks\" href=\"".$Settings['url']."Admin/index.php?pageID=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 } else {
    echo "<li><p>0 results</p></li>";
@@ -118,7 +145,7 @@ unset($result);
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button logout" href="http://localhost/php-project-2/Admin/index.php?logout=true">Logout</a>
+    <a class="button logout" href="<?php echo $Settings['url']?>Admin/index.php?logout=true">Logout</a>
   </li>
 </ul>
 </nav>
