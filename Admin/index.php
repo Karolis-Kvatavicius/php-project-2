@@ -24,13 +24,6 @@ include 'header.php';
 
 </form>
 <div class="whitespace2"></div>
-<!-- <p>
-  <strong>Files You Selected:</strong>
-</p>
-<ul id="fileList">
-     <li>No Files Selected</li>
-</ul> -->
-
 
 <?php
 include 'footer.php';

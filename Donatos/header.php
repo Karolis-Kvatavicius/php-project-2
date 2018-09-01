@@ -1,7 +1,4 @@
 <?php
-$sql = "SELECT id FROM users WHERE Username='".$_SESSION['username']."'";
-$userID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
-unset($sql);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +10,6 @@ unset($sql);
     <title>Home</title>
 </head>
 <body>
-<?php 
-    $sql = "SELECT * FROM pages WHERE UserID='".$userID."'";
-
-    ?>
 <nav>
 <ul id="bar">
     <li class="menu menu-hover">
