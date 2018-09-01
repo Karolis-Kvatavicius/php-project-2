@@ -17,6 +17,7 @@ unset($sql);
     $sql = "SELECT * FROM pages WHERE UserID='".$userID."'";
 
     ?>
+    
 <nav>
 <ul id="bar">
     <li class="menu menu-hover">
