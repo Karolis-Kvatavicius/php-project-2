@@ -24,12 +24,12 @@ include 'header.php';
 
 </form>
 <div class="whitespace2"></div>
-<p>
+<!-- <p>
   <strong>Files You Selected:</strong>
 </p>
 <ul id="fileList">
      <li>No Files Selected</li>
-</ul>
+</ul> -->
 
 
 <?php
