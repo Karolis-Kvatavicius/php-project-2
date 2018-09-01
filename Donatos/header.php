@@ -36,8 +36,9 @@ $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=http://localhost/php-project-2/Donatos/".$row['Antraste'].".php".">".$row['Antraste']."</a></li>";
-   }
+            echo "<li><a href=".$Settings['url'].$row['Antraste'].".php".">".$row['Antraste']."</a></li>";
+    
+        }
 }
 
 ?>
@@ -120,7 +121,7 @@ if(mysqli_num_rows($result) > 0) {
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://www.projektas.test/Donatos/login.php">Login</a>
+    <a class="button" href="<?= $Settings['url']?>/Donatos/login.php">Login</a>
   </li>
 </ul>
   </nav>
