@@ -116,7 +116,7 @@ if(isset($_POST['update-page'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="<?= $Settings['css']['stilius']?>">
+    <link rel="stylesheet" type="text/css" media="screen" href="<?= $projectSettings['css']['stilius']?>">
 </head>
 <body>
 <header>    
