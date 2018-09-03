@@ -11,22 +11,19 @@ include 'index.php';
 </head>
 <body>
 
-    <h1>Hello</h1>
-    <p>puslapis is nuorodos</p>
-
    <?php
     $sql = "SELECT Antraste, Turinys FROM pages";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
+     
             echo "<h1>{$row['Antraste']}</h1>";?>
             <br>
             <br>
             <?php
             echo "<p>{$row['Turinys']}</p>";
-
-   }
+}
 }
 ?>
 

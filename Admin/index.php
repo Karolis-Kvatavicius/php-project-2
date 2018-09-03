@@ -3,6 +3,7 @@ include '../PhpConsole/__autoload.php';
 PhpConsole\Helper::register(); // it will register global PC class
 include '../settings.php';
 include 'projectSettings.php';
+include '../Mariaus/createSlug.php';
 include 'header.php';
 ?>
 <p id="currentPage">Current page is: <?= $_SESSION['antraste'] ?></p>
