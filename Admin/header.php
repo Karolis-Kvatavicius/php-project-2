@@ -81,9 +81,19 @@ if(isset($_POST['upload-page'])) {
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
+
+  $sql ="INSERT INTO pages (Pavadinimas, Nuoroda, PageID)
+  VALUES ('".$_SESSION['antraste']."', '".$target_file."', '".$pageID['id']."');";
+  if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+
   header('Location:'.$Settings['url'].'Admin/index.php?pageID='.$_SESSION['pageID']);
   exit;
 }
+
 
 if(isset($_POST['update-page'])) {
   include 'fileUpload.php';
