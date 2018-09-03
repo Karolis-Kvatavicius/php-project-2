@@ -3,5 +3,5 @@ body {
     font-family: "Kreon"; font-size: 20px;
 }
     img {
-        float: left;
+        float: left; padding: 10px;
     }
