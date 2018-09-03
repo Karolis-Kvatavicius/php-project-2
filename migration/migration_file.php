@@ -9,8 +9,8 @@ include '../settings.php';
 
     // If can't connect, then create database
     if (!$db_selected) {
-        $sql = 'CREATE DATABASE wordpress2';
-        $conn->query($conn, $sql);
+        $sql = 'CREATE DATABASE wordpress2 CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci;';
+        $conn->query($sql);
         unset($sql);
         unset($conn);
         $conn = new mysqli($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']); 
@@ -53,9 +53,9 @@ include '../settings.php';
     $sql .= "CREATE TABLE Pages (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Antraste VARCHAR(100) NOT NULL,
-    Turinys LONGTEXT CHARACTER SET utf8 NOT NULL,
+    Turinys LONGTEXT NOT NULL,
     UserID INT(30) NOT NULL,
-    Slug VARCHAR(500) UNIQUE NULL,
+    Slug VARCHAR(192) UNIQUE NOT NULL,
     reg_date TIMESTAMP
     );";
 
@@ -68,3 +68,4 @@ include '../settings.php';
     reg_date TIMESTAMP
     );";
     $conn->multi_query($sql);
+    // var_dump($conn);
