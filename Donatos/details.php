@@ -17,14 +17,12 @@ $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-       if(isset($row['Antraste'])){
+     
             echo "<h1>{$row['Antraste']}</h1>";?>
             <br>
             <br>
             <?php
             echo "<p>{$row['Turinys']}</p>";
-
-   }
 }
 }
 ?>

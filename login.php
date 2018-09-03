@@ -45,7 +45,7 @@ if(isset($_POST['login'])){
         $slaptazodisDB = $row['Slaptazodis'];
         
     } else {
-        header('Location:'.$Settings['url'].'Donatos/login.php');
+        header('Location:'.$Settings['url'].'/login.php');
          exit;
   }
  

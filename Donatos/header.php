@@ -1,3 +1,14 @@
+<?php
+session_start();
+// include '../PhpConsole/__autoload.php';
+// PhpConsole\Helper::register(); // it will register global PC class
+include '../settings.php';
+
+$conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']);
+if (!$conn) {
+   die("Connection failed: " . mysqli_connect_error());
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,23 +35,26 @@ if(mysqli_num_rows($result) > 0) {
    }
 }
 ?>
-   <!-- </ul>
+ </ul>
   </li>
   <li class="menu menu-hover">
      <a href="#" class="button">Donatos</a>
-    <ul class="submenu"> -->
-
+    <ul class="submenu">
     <?php
-//     $sql = "SELECT Antraste,id FROM pages WHERE UserID='2'";
-// $result = mysqli_query($conn, $sql);
+    $sql = "SELECT Antraste, id FROM pages WHERE UserID='2'";
+$result = mysqli_query($conn, $sql);
 
-// if(mysqli_num_rows($result) > 0) {
-//    while($row = mysqli_fetch_assoc($result)) {
-       
-//     // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-//     echo "<li><a href='details.php?id=".$row['Antraste'].">".$row['Antraste']."</a></li>";
-//    }
-// }
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+        //    echo "<li><a href='details.php?id=".$row['id'].">".$row['Antraste']."</a></li>";
+        //     echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+
+        echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
+   }
+}
+    
+
+ 
 ?>
    </ul>
   </li>
@@ -120,7 +134,24 @@ if(mysqli_num_rows($result) > 0) {
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="<?= $Settings['url']?>/Donatos/login.php">Login</a>
+    <a class="button" href="<?= $Settings['url']?>login.php">Login</a>
   </li>
 </ul>
   </nav>
+
+
+
+   <?php
+    $sql = "SELECT Antraste, Turinys FROM pages WHERE id = {$_GET['id']}";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+     
+            echo "<h1>{$row['Antraste']}</h1>";?>
+            <br>
+            <br>
+            <?php
+            echo "<p>{$row['Turinys']}</p>";
+}
+}
