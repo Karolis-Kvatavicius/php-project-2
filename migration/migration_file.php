@@ -1,6 +1,7 @@
 <?php
 include '../settings.php';
 
+
     //connect to server
     $conn = new mysqli($Settings['servername'], $Settings['dbUser'], $Settings['dbPass']);
 
