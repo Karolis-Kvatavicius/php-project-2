@@ -1,18 +1,18 @@
 <?php
 session_start();
-
+include 'settings.php';
 if(isset($_GET['logout']) && $_GET['logout'] == true) {
     session_destroy();
     header('Location:'.$Settings['url']);
     exit;
   }
   
-  if(!isset($_SESSION['sesija']) && $_SESSION['sesija'] != true) {
-    session_destroy();
-    header('Location:'.$Settings['url']);
-    exit;
-  }
-include 'settings.php';
+//   if(!isset($_SESSION['sesija']) && $_SESSION['sesija'] != true) {
+//     session_destroy();
+//     header('Location:'.$Settings['url']);
+//     exit;
+//   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
