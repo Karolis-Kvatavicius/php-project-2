@@ -28,13 +28,10 @@ include 'settings.php';
 </head>
 <body>
 <?php
-$servername = "localhost";
-$username = 'root';
-$password = '123';
-$conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+$conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']);
 if (!$conn) {
    die("Connection failed: " . mysqli_connect_error());
-} 
+}
 $slaptazodisDB='';
 if(isset($_POST['login'])){
     $sql="SELECT Username, Slaptazodis FROM Users WHERE Username='".$_POST['username']."'";
