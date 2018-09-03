@@ -142,9 +142,9 @@ if(mysqli_num_rows($result) > 0) {
 
 
    <?php
+   if(isset($_GET['id'])){
     $sql = "SELECT Antraste, Turinys FROM pages WHERE id = {$_GET['id']}";
 $result = mysqli_query($conn, $sql);
-
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
      
@@ -155,3 +155,5 @@ if(mysqli_num_rows($result) > 0) {
             echo "<p>{$row['Turinys']}</p>";
 }
 }
+   }
+?>
