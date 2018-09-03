@@ -19,7 +19,6 @@ include 'settings.php';
             font-weight:bold;
             width:100px;
             font-size:14px;
-
          }
          .box {
             border:#666666 solid 1px;
