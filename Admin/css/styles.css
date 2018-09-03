@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    background-color: beige;
 }
 
 header {
@@ -10,6 +11,11 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    opacity: 0.6;
+}
+
+header:hover {
+    opacity: 1;
 }
 
 header p {
@@ -18,9 +24,10 @@ header p {
 }
 
 #currentPage {
-    text-align: center;
+    text-align: left;
     font-size: 22px;
-    padding-top: 200px;
+    padding-bottom: 160px;
+    margin: 0;
 }
 
 #editor input {
@@ -33,23 +40,32 @@ header p {
     border: 1.5px solid black;
 }
 
+#main-editor {
+    display: flex;
+}
+
 
 
 #editor, #side {
-    /* width: 50%; */
     padding: 30px;
+}
+
+#editor {
+    padding-top: 150px;
 }
 
 #side {
     display: flex;
     justify-content: left;
+    padding-left: 120px;
+    padding-bottom: 100px;
 }
 
-#side input {
+#currentPhoto input {
     background-color: black;
     color: white;
     font-size: 18px;
-    margin: 30px;
+    margin: 5px;
     padding: 10px;
     border: 1px solid black;
     cursor: pointer;
@@ -97,7 +113,6 @@ footer p {
 
 textarea {
     resize: none;
-    /* width: 1200px; */
     height: 500px;
     border: 2px solid black;
     padding: 20px;
@@ -106,26 +121,31 @@ textarea {
 
 #imagePreview {
     border: 2px solid red;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     background-position: center center;
     background-size: cover;
     display: inline-block;
+    margin-left: 40px;
 }
 
 .submenu {
-    position: absolute;
-    top: 150px;
-    right: 20px;
+    height: 5px;
+    overflow: hidden;
+}
+
+.submenu:hover {
+    height: 100%;
+    border: 1px solid red;
+    border-radius: 5px;
 }
 
 .pageslinks {
-    color: black;
+    color: white;
 }
 
 .pageslinks:hover {
     color: green;
-    background-color: lightgrey;
 }
 
 #DeletePage:hover {
@@ -136,11 +156,12 @@ textarea {
 
 #currentPhoto {
     padding-left: 220px;
+    margin-top: 200px;
 }
 
-#file:hover {
-    border-radius: 5px;
-    background-color: green;
+#file {
+    display: flex;
+    padding-top: 100px;
 }
 
 #update:hover {
@@ -151,4 +172,16 @@ textarea {
 #upload:hover {
     border-radius: 5px;
     background-color: green;
+}
+
+#image-upload {
+    padding-left: 420px;
+    margin: 0;
+}
+
+.logout:hover {
+    color: red;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
 }

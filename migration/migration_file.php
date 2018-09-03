@@ -10,7 +10,7 @@ include '../settings.php';
 
     // If can't connect, then create database
     if (!$db_selected) {
-        $sql = 'CREATE DATABASE wordpress2 CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci;';
+        $sql = 'CREATE DATABASE wordpress2';
         $conn->query($sql);
         unset($sql);
         unset($conn);
