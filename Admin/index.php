@@ -32,8 +32,10 @@ include 'header.php';
 <div class="whitespace2"></div>
 
 <?php
+echo createSlug('55 Žydrūnas Česnauskas žurnalas');
 include 'footer.php';
 PC::debug($userID, 'userID');
 PC::debug($_SESSION['pageID'], 'pageID');
 PC::debug($Settings, 'settings');
 PC::debug($_SESSION['nuoroda'], 'image path');
+PC::debug($pageID, 'test id');
