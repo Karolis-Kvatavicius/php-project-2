@@ -1,15 +1,11 @@
 <?php
-
-    //Prisijungimai
-    $servername = "localhost";
-    $username = "root";
-    $password = "123";
+include '../settings.php';
 
     //connect to server
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($Settings['servername'], $Settings['dbUser'], $Settings['dbPass']);
 
     //select database
-    $db_selected = $conn->select_db('wordpress2');
+    $db_selected = $conn->select_db($Settings['dbName']);
 
     // If can't connect, then create database
     if (!$db_selected) {
@@ -17,11 +13,11 @@
         $conn->query($conn, $sql);
         unset($sql);
         unset($conn);
-        $conn = new mysqli($servername, $username, $password, 'wordpress2'); 
+        $conn = new mysqli($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']); 
         
     } else {
         unset($conn);
-        $conn = new mysqli($servername, $username, $password, 'wordpress2'); 
+        $conn = new mysqli($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']); 
     }
 
     // delete tables if exist
