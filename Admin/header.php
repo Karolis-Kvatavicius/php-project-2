@@ -1,17 +1,6 @@
 <?php 
 session_start();
 
-if(isset($_GET['logout']) && $_GET['logout'] == true) {
-  session_destroy();
-  header('Location:'.$Settings['url'].'Donatos/index.php');
-  exit;
-}
-
-if(!isset($_SESSION['sesija']) && $_SESSION['sesija'] != true) {
-  session_destroy();
-  header('Location:'.$Settings['url'].'Donatos/index.php');
-  exit;
-}
 
 $conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']);
 $_SESSION['antraste'] = '';
@@ -180,7 +169,7 @@ unset($result);
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button logout" href="<?php echo $Settings['url']?>Admin/index.php?logout=true">Logout</a>
+    <a class="button logout" href="<?php echo $Settings['url']?>index.php?logout=true">Logout</a>
   </li>
 </ul>
 </nav>
