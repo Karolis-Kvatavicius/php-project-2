@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../settings.php';
+include 'settings.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,13 +28,10 @@ include '../settings.php';
 </head>
 <body>
 <?php
-$servername = "localhost";
-$username = 'root';
-$password = '123';
-$conn = mysqli_connect($servername, $username, $password, 'wordpress2');
+$conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']);
 if (!$conn) {
    die("Connection failed: " . mysqli_connect_error());
-} 
+}
 $slaptazodisDB='';
 if(isset($_POST['login'])){
     $sql="SELECT Username, Slaptazodis FROM Users WHERE Username='".$_POST['username']."'";
@@ -45,7 +42,7 @@ if(isset($_POST['login'])){
         $slaptazodisDB = $row['Slaptazodis'];
         
     } else {
-        header('Location:'.$Settings['url'].'Donatos/login.php');
+        header('Location:'.$Settings['url'].'login.php');
          exit;
   }
  
