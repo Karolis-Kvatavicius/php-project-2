@@ -10,7 +10,7 @@ include '../settings.php';
     // If can't connect, then create database
     if (!$db_selected) {
         $sql = 'CREATE DATABASE wordpress2';
-        $conn->query($conn, $sql);
+        $conn->query($sql);
         unset($sql);
         unset($conn);
         $conn = new mysqli($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']); 
