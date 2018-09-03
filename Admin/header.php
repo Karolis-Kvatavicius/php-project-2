@@ -55,6 +55,10 @@ if (isset($_GET['pageID'])) {
 
 if(isset($_POST['upload-page'])) {
   include 'fileUpload.php';
+  //add slug
+  //INSERT INTO pages (... , Slug)
+  //slugify($_POST['heading']);
+  //tas pats ir su update
   $sql = "INSERT INTO pages (Antraste, Turinys, UserID)
   VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."');";
   $_SESSION['antraste'] = $_POST['heading'];
@@ -77,7 +81,7 @@ if(isset($_POST['upload-page'])) {
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
+  header('Location:'.$Settings['url'].'Admin/index.php?pageID='.$_SESSION['pageID']);
   exit;
 }
 
@@ -106,9 +110,30 @@ if(isset($_POST['update-page'])) {
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
-  header('Location:'.$Settings['url'].'/Admin/index.php?pageID='.$_SESSION['pageID']);
+  header('Location:'.$Settings['url'].'Admin/index.php?pageID='.$_SESSION['pageID']);
   exit;
  
+}
+
+if(isset($_POST['DeletePage'])) {
+
+$sql = "DELETE FROM pages WHERE id=".$_SESSION['pageID'];
+if (mysqli_query($conn, $sql)) {
+   echo "Record deleted successfully";
+} else {
+   echo "Error deleting record: " . mysqli_error($conn);
+}
+
+$sql = "DELETE FROM images WHERE id=".$_SESSION['pageID'];
+if (mysqli_query($conn, $sql)) {
+   echo "Record deleted successfully";
+} else {
+   echo "Error deleting record: " . mysqli_error($conn);
+}
+
+header('Location:'.$Settings['url'].'Admin/index.php');
+exit;
+
 }
 
 ?>

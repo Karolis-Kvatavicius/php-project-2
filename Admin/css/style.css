@@ -60,7 +60,7 @@ nav {
 
 #page-form {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 #heading {
@@ -75,7 +75,7 @@ nav {
 }
 
 .whitespace {
-    height: 40px;
+    height: 180px;
 }
 
 .whitespace2 {
@@ -84,6 +84,7 @@ nav {
 
 #editor {
     padding-bottom: 20px;
+    width: 70%;
 }
 
 #upload {
@@ -93,9 +94,9 @@ nav {
     padding: 20px;
     border: none;
     opacity: 0.7;
-    position: absolute;
+    /* position: absolute;
     bottom: 170px;
-    right: 580px;
+    right: 580px; */
     cursor: pointer;
 }
 
@@ -114,9 +115,9 @@ nav {
     padding: 20px;
     border: none;
     opacity: 0.7;
-    position: absolute;
+    /* position: absolute;
     bottom: 170px;
-    right: 450px;
+    right: 450px; */
     cursor: pointer;
 }
 
@@ -166,36 +167,37 @@ nav {
     border-radius: 5px;
 }
 
-#file {
+/* #file {
     position: absolute;
     bottom: 180px;
     left: 400px;
-}
+} */
 
 #imagePreview {
-    position: absolute;
-    bottom: 140px;
-    right: 750px;
+    /* position: absolute; */
+    /* bottom: 140px;
+    right: 750px; */
     border: 2px solid red;
     width: 100px;
     height: 100px;
     background-position: center center;
     background-size: cover;
     display: inline-block;
+    
 }
 
 .pagephoto {
-    position: absolute;
+    /* position: absolute;
     bottom: 360px;
-    right: 30px;
+    right: 30px; */
     border: 2px solid green;
 }
 
-#imageAdd {
+/* #imageAdd {
     position: absolute;
     right: 200px;
     top: 220px;
-}
+} */
 
 #currentPage {
     text-align: center;
@@ -204,4 +206,8 @@ nav {
     color: darkblue;
     margin: 0;
     letter-spacing: 2px;
+}
+
+#side {
+    width: 30%;
 }
