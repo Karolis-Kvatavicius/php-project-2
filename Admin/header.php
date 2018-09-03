@@ -1,12 +1,6 @@
 <?php 
 session_start();
 
-if(isset($_GET['logout']) && $_GET['logout'] == true) {
-  session_destroy();
-  header('Location:'.$Settings['url'].'Donatos/index.php');
-  exit;
-}
-
 if(!isset($_SESSION['sesija']) && $_SESSION['sesija'] != true) {
   session_destroy();
   header('Location:'.$Settings['url'].'Donatos/index.php');
@@ -70,8 +64,10 @@ if(isset($_POST['upload-page'])) {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   unset($sql);
-  $sql = "SELECT id FROM pages WHERE Antraste='".$_SESSION['antraste']."'";
+  //get last inserted id
+  $sql = "SELECT MAX(id) AS id FROM pages";
   $pageID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+  print_r($pageID);
   unset($sql);
   $sql ="INSERT INTO images (Pavadinimas, Nuoroda, PageID)
   VALUES ('".$_SESSION['antraste']."', '".$target_file."', '".$pageID['id']."');";
@@ -81,9 +77,7 @@ if(isset($_POST['upload-page'])) {
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-
-  $sql ="INSERT INTO pages (Pavadinimas, Nuoroda, PageID)
-  VALUES ('".$_SESSION['antraste']."', '".$target_file."', '".$pageID['id']."');";
+  $sql = "UPDATE pages SET Slug='".createSlug($pageID['id'].' '.$_SESSION['antraste'])."' WHERE id=".$_SESSION['pageID'];
   if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
   } else {
@@ -180,7 +174,7 @@ unset($result);
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button logout" href="<?php echo $Settings['url']?>Admin/index.php?logout=true">Logout</a>
+    <a class="button logout" href="<?php echo $Settings['url']?>login.php?logout=true">Logout</a>
   </li>
 </ul>
 </nav>
