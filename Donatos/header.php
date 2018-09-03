@@ -1,4 +1,5 @@
 <?php
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,7 @@
 </head>
 <body>
 <nav>
+
 <ul id="bar">
     <li class="menu menu-hover">
     <a href="#" class="button">Jono</a>
@@ -25,25 +27,8 @@ if(mysqli_num_rows($result) > 0) {
    }
 }
 ?>
-    </ul>
-  </li>
-  <li class="menu menu-hover">
-     <a href="#" class="button">Donatos</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste FROM pages WHERE UserID='2'";
-$result = mysqli_query($conn, $sql);
 
-if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=".$Settings['url'].$row['Antraste'].".php".">".$row['Antraste']."</a></li>";
-    
-        }
-}
-
-?>
-
-    </ul>
+   </ul>
   </li>
   <li class="menu menu-hover">
      <a href="#" class="button">Mariaus</a>
