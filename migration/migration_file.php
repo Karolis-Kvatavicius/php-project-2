@@ -56,9 +56,10 @@
     //create PAGES table
     $sql .= "CREATE TABLE Pages (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Antraste VARCHAR(30) NOT NULL,
-    Turinys VARCHAR(15) NOT NULL,
+    Antraste VARCHAR(30) UNIQUE NOT NULL,
+    Turinys LONGTEXT CHARACTER SET utf8 NOT NULL,
     UserID INT(30) NOT NULL,
+    Slug VARCHAR(500) UNIQUE NULL,
     reg_date TIMESTAMP
     );";
 
@@ -66,7 +67,8 @@
     $sql .= "CREATE TABLE Images (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Pavadinimas VARCHAR(30) NOT NULL,
-    Nuoroda VARCHAR(30) NOT NULL,
+    Nuoroda TEXT NOT NULL,
+    PageID INT(30) NOT NULL,
     reg_date TIMESTAMP
     );";
     $conn->multi_query($sql);

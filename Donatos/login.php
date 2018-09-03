@@ -1,14 +1,6 @@
 <?php
 session_start();
-if(isset($_GET['logout']) && $_GET['logout'] == 1){
-    session_destroy();
-    header('Location:http://localhost/php-project-2/Donatos/login.php');
-    exit;
-}
-if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
-    header('Location:http://localhost/php-project-2/Donatos/pages.php');
-    exit;
-}
+include '../settings.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +19,7 @@ if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
             font-weight:bold;
             width:100px;
             font-size:14px;
+
          }
          .box {
             border:#666666 solid 1px;
@@ -52,7 +45,7 @@ if(isset($_POST['login'])){
         $slaptazodisDB = $row['Slaptazodis'];
         
     } else {
-        header('Location:http://localhost/php-project-2/Donatos/login.php');
+        header('Location:'.$Settings['url'].'Donatos/login.php');
          exit;
   }
  
@@ -60,7 +53,7 @@ if(isset($_POST['login'])){
     $_SESSION['sesija'] = true;
     //session username naudosim index.php puslapyje
     $_SESSION['username'] = $_POST['username'];
-    header('Location:http://localhost/php-project-2/Admin/index.php');
+    header('Location:'.$Settings['url'].'Admin/index.php');
     exit;
 }
     
@@ -70,8 +63,8 @@ if(isset($_POST['login'])){
     
     
     ?>
-    
-    <div align = "center">
+      
+      <div align = "center">
     <div style = "width:300px; border: solid 1px #333333; " align = "left">
     <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
     <div style = "margin:30px">

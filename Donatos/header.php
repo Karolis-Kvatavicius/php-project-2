@@ -1,16 +1,5 @@
 <?php
-if(isset($_GET['logout']) && $_GET['logout'] == true) {
-   session_destroy();
-}
 
-$_SESSION['username'] = '';
-$servername = "localhost";
-$username = 'root';
-$password = '123';
-$conn = mysqli_connect($servername, $username, $password, 'wordpress2');
-if (!$conn) {
-   die("Connection failed: " . mysqli_connect_error());
-}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,54 +12,101 @@ if (!$conn) {
 </head>
 <body>
 <nav>
+
 <ul id="bar">
     <li class="menu menu-hover">
     <a href="#" class="button">Jono</a>
     <ul class="submenu">
-      <li><a href="#">Menu item 1</a></li>
-      <li><a href="#">Menu item 2</a></li>
-      <li><a href="#">Menu item 3</a></li>
-      <li><a href="#">Menu item 4</a></li>
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='1'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+}
+?>
+
+   </ul>
+  </li>
+  <li class="menu menu-hover">
+     <a href="#" class="button">Mariaus</a>
+    <ul class="submenu">
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='3'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+}
+?>
     </ul>
   </li>
   <li class="menu menu-hover">
-    <a href="#" class="button">Mariaus</a>
+     <a href="#" class="button">Karolio</a>
     <ul class="submenu">
-      <li><a href="http://localhost/PHP-project-2/Mariaus/saras.html">Šaras</a></li>
-      <li><a href="#">Menu item 2</a></li>
-      <li><a href="#">Menu item 3</a></li>
-      <li><a href="#">Menu item 4</a></li>
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='4'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+}
+?>
     </ul>
   </li>
   <li class="menu menu-hover">
     <a href="#" class="button">Dainiaus</a>
     <ul class="submenu">
-      <li><a href="#">Menu item 1</a></li>
-      <li><a href="#">Menu item 2</a></li>
-      <li><a href="#">Menu item 3</a></li>
-      <li><a href="#">Menu item 4</a></li>
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='5'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+} 
+?>
     </ul>
   </li>
   <li class="menu menu-hover">
     <a href="#" class="button">Šaruno</a>
     <ul class="submenu">
-      <li><a href="#">Menu item 1</a></li>
-      <li><a href="#">Menu item 2</a></li>
-      <li><a href="#">Menu item 3</a></li>
-      <li><a href="#">Menu item 4</a></li>
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='6'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+} 
+?>
     </ul>
   </li>
   <li class="menu menu-hover">
     <a href="#" class="button">Nikolajaus</a>
     <ul class="submenu">
-      <li><a href="#">Menu item 1</a></li>
-      <li><a href="#">Menu item 2</a></li>
-      <li><a href="#">Menu item 3</a></li>
-      <li><a href="#">Menu item 4</a></li>
+    <?php
+    $sql = "SELECT Antraste FROM pages WHERE UserID='7'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+   while($row = mysqli_fetch_assoc($result)) {
+            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+   }
+}
+?>
     </ul>
   </li>
   <li class="menu menu-right menu-click">
-    <a class="button" href="http://localhost/php-project-2/Donatos/login.php">Login</a>
+    <a class="button" href="<?= $Settings['url']?>/Donatos/login.php">Login</a>
   </li>
 </ul>
   </nav>
