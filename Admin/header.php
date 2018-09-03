@@ -55,6 +55,10 @@ if (isset($_GET['pageID'])) {
 
 if(isset($_POST['upload-page'])) {
   include 'fileUpload.php';
+  //add slug
+  //INSERT INTO pages (... , Slug)
+  //slugify($_POST['heading']);
+  //tas pats ir su update
   $sql = "INSERT INTO pages (Antraste, Turinys, UserID)
   VALUES ('".$_POST['heading']."', '".$_POST['content']."', '".$userID['id']."');";
   $_SESSION['antraste'] = $_POST['heading'];
@@ -159,7 +163,7 @@ if(mysqli_num_rows($result) > 0) {
        echo "<li class=\"usersPages\"><a class=\"pagesLinks\" href=\"".$Settings['url']."Admin/index.php?pageID=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 } else {
-  //  echo "<li><p>0 results</p></li>";
+   echo "<li><p>0 results</p></li>";
 }
 unset($result);
  ?>

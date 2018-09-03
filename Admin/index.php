@@ -14,14 +14,14 @@ include 'header.php';
 <div id="side">
 <div>
 <div>
-<input type="file" name="imageUpload" value="Add image" id="file" onChange="makeFileList();"/>
+<input type="file" name="imageUpload" value="Add image" id="file"/>
 <div id="imagePreview"></div>
 </div>
 <input type="submit" name="upload-page" value="Upload" id="upload">
 <input type="submit" name="update-page" value="Update" id="update">
 <input type="submit" name="DeletePage" value="Delete Current Page" id="DeletePage">
 </div>
-<div>
+<div id="currentPhoto">
 <p id="imageAdd">Current page photo:</p>
 <img src="<?= $_SESSION['nuoroda'] ?>" onerror="this.src='<?php echo $projectSettings['defaultImg']?>'" width="300px" height="200px" class="pagePhoto" alt="">
 </div>

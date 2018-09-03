@@ -42,7 +42,7 @@ header p {
 
 #side {
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
 }
 
 #side input {
@@ -51,7 +51,7 @@ header p {
     font-size: 18px;
     margin: 30px;
     padding: 10px;
-    border: 1pc solid black;
+    border: 1px solid black;
     cursor: pointer;
 }
 
@@ -119,6 +119,36 @@ textarea {
     right: 20px;
 }
 
-.pagesLinks {
+.pageslinks {
     color: black;
+}
+
+.pageslinks:hover {
+    color: green;
+    background-color: lightgrey;
+}
+
+#DeletePage:hover {
+    border-radius: 5px;
+    background-color: red;
+    box-sizing: border-box;
+}
+
+#currentPhoto {
+    padding-left: 220px;
+}
+
+#file:hover {
+    border-radius: 5px;
+    background-color: green;
+}
+
+#update:hover {
+    border-radius: 5px;
+    background-color: green;
+}
+
+#upload:hover {
+    border-radius: 5px;
+    background-color: green;
 }
