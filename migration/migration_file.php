@@ -1,6 +1,7 @@
 <?php
 include '../settings.php';
 
+
     //connect to server
     $conn = new mysqli($Settings['servername'], $Settings['dbUser'], $Settings['dbPass']);
 
@@ -9,7 +10,7 @@ include '../settings.php';
 
     // If can't connect, then create database
     if (!$db_selected) {
-        $sql = 'CREATE DATABASE wordpress2';
+        $sql = "CREATE DATABASE ".$Settings['dbName']." CHARSET = utf8 COLLATE = utf8_lithuanian_ci;";
         $conn->query($sql);
         unset($sql);
         unset($conn);
@@ -45,7 +46,7 @@ include '../settings.php';
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
     VALUES ('Dainius', '123');";
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
-    VALUES ('Sarunas', '123');";
+    VALUES ('Šarūnas', '123');";
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
     VALUES ('Nikolajus', '123');";
 
@@ -53,9 +54,9 @@ include '../settings.php';
     $sql .= "CREATE TABLE Pages (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Antraste VARCHAR(100) NOT NULL,
-    Turinys LONGTEXT CHARACTER SET utf8 NOT NULL,
+    Turinys LONGTEXT NOT NULL,
     UserID INT(30) NOT NULL,
-    Slug VARCHAR(500) UNIQUE NULL,
+    Slug VARCHAR(192) UNIQUE NOT NULL,
     reg_date TIMESTAMP
     );";
 
@@ -65,6 +66,8 @@ include '../settings.php';
     Pavadinimas VARCHAR(30) NOT NULL,
     Nuoroda TEXT NOT NULL,
     PageID INT(30) NOT NULL,
+    ImageID INT(30) NOT NULL,
     reg_date TIMESTAMP
     );";
     $conn->multi_query($sql);
+    // var_dump($conn);

@@ -26,12 +26,13 @@ if (!$conn) {
     <a href="#" class="button">Jono</a>
     <ul class="submenu">
     <?php
-    $sql = "SELECT Antraste FROM pages WHERE UserID='1'";
+    $sql = "SELECT Antraste,id FROM pages WHERE UserID='1'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 }
 ?>
@@ -62,12 +63,13 @@ if(mysqli_num_rows($result) > 0) {
      <a href="#" class="button">Mariaus</a>
     <ul class="submenu">
     <?php
-    $sql = "SELECT Antraste FROM pages WHERE UserID='3'";
+    $sql = "SELECT Antraste, id FROM pages WHERE UserID='3'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 }
 ?>
@@ -77,12 +79,13 @@ if(mysqli_num_rows($result) > 0) {
      <a href="#" class="button">Karolio</a>
     <ul class="submenu">
     <?php
-    $sql = "SELECT Antraste FROM pages WHERE UserID='4'";
+    $sql = "SELECT Antraste, id FROM pages WHERE UserID='4'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 }
 ?>
@@ -92,12 +95,13 @@ if(mysqli_num_rows($result) > 0) {
     <a href="#" class="button">Dainiaus</a>
     <ul class="submenu">
     <?php
-    $sql = "SELECT Antraste FROM pages WHERE UserID='5'";
+    $sql = "SELECT Antraste, id FROM pages WHERE UserID='5'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 } 
 ?>
@@ -107,12 +111,13 @@ if(mysqli_num_rows($result) > 0) {
     <a href="#" class="button">Šaruno</a>
     <ul class="submenu">
     <?php
-    $sql = "SELECT Antraste FROM pages WHERE UserID='6'";
+    $sql = "SELECT Antraste, id FROM pages WHERE UserID='6'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 } 
 ?>
@@ -122,12 +127,13 @@ if(mysqli_num_rows($result) > 0) {
     <a href="#" class="button">Nikolajaus</a>
     <ul class="submenu">
     <?php
-    $sql = "SELECT Antraste FROM pages WHERE UserID='7'";
+    $sql = "SELECT Antraste, id FROM pages WHERE UserID='7'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
    }
 }
 ?>
