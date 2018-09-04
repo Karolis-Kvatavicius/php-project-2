@@ -23,7 +23,7 @@ if (!$conn) {
 <ul id="bar">
 <?php
 
-$sql = "SELECT Username, id FROM users";
+$sql = "SELECT Username, id FROM users ORDER BY Username";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
