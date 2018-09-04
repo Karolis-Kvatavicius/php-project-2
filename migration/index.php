@@ -33,6 +33,18 @@ if (isset($_GET['do']) && $_GET['do'] == 'export') {
     }
 
     file_put_contents($_SESSION['username'].'-pages.sql', $t_1);
+
+    $t_1 = '';
+
+    foreach ($t_0 as $val) {
+        $t_1 .= "INSERT INTO Pages (Nuoroda, PageId, ImageID) 
+        VALUES ('".addslashes($val['Nuoroda'])."', '".addslashes($val['PageId'])."', '".addslashes($val['ImageID'])."');";
+    }
+
+    //file_put_contents($_SESSION['username'].'-images.sql', $t_1);
+
+
+
     
 }
 if (isset($_GET['do']) && $_GET['do'] == 'import') {
