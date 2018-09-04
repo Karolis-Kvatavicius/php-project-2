@@ -10,7 +10,7 @@ include '../settings.php';
 
     // If can't connect, then create database
     if (!$db_selected) {
-        $sql = "CREATE DATABASE ".$Settings['dbName']." CHARSET = utf8 COLLATE = utf8_lithuanian_ci;";
+        $sql = "CREATE DATABASE ".$Settings['dbName'];
         $conn->query($sql);
         unset($sql);
         unset($conn);
@@ -54,7 +54,7 @@ include '../settings.php';
     $sql .= "CREATE TABLE Pages (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Antraste VARCHAR(100) NOT NULL,
-    Turinys LONGTEXT NOT NULL,
+    Turinys TEXT NOT NULL,
     UserID INT(30) NOT NULL,
     Slug VARCHAR(192) UNIQUE NOT NULL,
     reg_date TIMESTAMP
