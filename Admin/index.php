@@ -32,6 +32,6 @@ include 'header.php';
 
 <?php
 include 'footer.php';
-PC::debug($userID, 'userID');
-PC::debug($_SESSION, 'SESSION');
-PC::debug($Settings, 'settings');
+// PC::debug($userID, 'userID');
+// PC::debug($_SESSION, 'SESSION');
+// PC::debug($Settings, 'settings');
