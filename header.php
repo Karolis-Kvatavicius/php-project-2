@@ -34,7 +34,7 @@ if(mysqli_num_rows($result) > 0) {
         ?>
         <li class="menu menu-hover">
         <?php
-       echo "<a href=\"'.#.'\" class=\"button\">".$row['Username']."</a>";
+       echo "<a class=\"button\">".$row['Username']."</a>";
        ?>
        <ul class="submenu">
   
@@ -69,7 +69,7 @@ if(mysqli_num_rows($result) > 0) {
 
    <?php
    if(isset($_GET['id'])){
-    $sql = "SELECT ImageID FROM images WHERE PageID = {$_GET['id']}";
+    $sql = "SELECT ImageID FROM images WHERE id = {$_GET['id']}";
     $result2 = mysqli_fetch_assoc(mysqli_query($conn, $sql));
     
 
