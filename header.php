@@ -69,6 +69,11 @@ if(mysqli_num_rows($result) > 0) {
 
    <?php
    if(isset($_GET['id'])){
+    $sql = "SELECT ImageID FROM images WHERE PageID = {$_GET['id']}";
+    $result2 = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+    
+
+
     $sql = "SELECT Antraste, Turinys FROM pages WHERE id = {$_GET['id']}";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0) {
@@ -79,6 +84,7 @@ if(mysqli_num_rows($result) > 0) {
             <br>
             <?php
             echo "<p>{$row['Turinys']}</p>";
+            include 'img.php';
 }
 }
 

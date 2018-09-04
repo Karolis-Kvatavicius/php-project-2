@@ -1,15 +1,6 @@
 <?php
-$settings['url'] = 'http://www.donata.test/';
 
-
-$post = '
-
-
-// [img=58]
-
-
-
-// ';
+$post = "[img={$result2['ImageID']}]";
 
 // echo $post;
 
@@ -30,16 +21,17 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
    // output data of each row
    while($row = mysqli_fetch_assoc($result)) {
-        $url = $row["Nuoroda"];
+        $url = $row['Nuoroda'];
    }
 }
+// var_dump($url);
 
 
 
-$img = $settings['url'].'Admin/images/'.$url;
+$img = $Settings['url'].'Admin/'.$url;
 
 
 $post = preg_replace('/\[img=(\d+)\]/', '<img src="'.$img.'">', $post);
 
-
+echo '<br><br>';
 echo $post;
