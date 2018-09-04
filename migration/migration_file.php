@@ -10,7 +10,7 @@ include '../settings.php';
 
     // If can't connect, then create database
     if (!$db_selected) {
-        $sql = 'CREATE DATABASE wordpress2 CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci;';
+        $sql = "CREATE DATABASE ".$Settings['dbName']." CHARSET = utf8 COLLATE = utf8_lithuanian_ci;";
         $conn->query($sql);
         unset($sql);
         unset($conn);
@@ -46,7 +46,7 @@ include '../settings.php';
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
     VALUES ('Dainius', '123');";
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
-    VALUES ('Sarunas', '123');";
+    VALUES ('Šarūnas', '123');";
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
     VALUES ('Nikolajus', '123');";
 
@@ -66,6 +66,7 @@ include '../settings.php';
     Pavadinimas VARCHAR(30) NOT NULL,
     Nuoroda TEXT NOT NULL,
     PageID INT(30) NOT NULL,
+    ImageID INT(30) NOT NULL,
     reg_date TIMESTAMP
     );";
     $conn->multi_query($sql);
