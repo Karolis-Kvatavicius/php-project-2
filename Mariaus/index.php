@@ -30,7 +30,7 @@ PC::debug($var);
    <div class="wrapper">
        <div class="sidebar-wrapper">
            <div class="profile-container">
-               <img class="profile" src="http://www.ltvirtove.lt/foto/zmones/sarunas_jasikevicius.jpg" alt="" />
+               <!-- <img class="profile" src="http://www.ltvirtove.lt/foto/zmones/sarunas_jasikevicius.jpg" alt="" /> -->
                <h1 class="name">Šarūnas Jasikevičius</h1>
                
            </div>
