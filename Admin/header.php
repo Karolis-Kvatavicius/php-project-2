@@ -109,7 +109,7 @@ if(isset($_POST['update-page'])) {
   }
   unset($sql);
 
-  $sql = "UPDATE images SET Nuoroda='".$target_file."' WHERE PageID=".$_SESSION['pageID'];
+  $sql = "UPDATE images SET Nuoroda='".$target_file."', Pavadinimas='".$_SESSION['antraste']."' WHERE PageID=".$_SESSION['pageID'];
 
   if (mysqli_query($conn, $sql)) {
     echo "Record updated successfully";
