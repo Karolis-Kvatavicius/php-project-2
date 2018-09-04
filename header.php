@@ -17,9 +17,7 @@ if (!$conn) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="<?=$user_directories[$_GET['User']]?>style.css"> // papildoma reiks dadet kreipiantis i settingus, is Karolio, kurio userio direktorija,
-   
-   
+    <link rel="stylesheet" href="<?=$user_directories[$_GET['User']]?>styles.css">    
     <title>Home</title>
 </head>
 <body>
