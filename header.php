@@ -20,125 +20,43 @@ if (!$conn) {
 </head>
 <body>
 <nav>
-
 <ul id="bar">
-    <li class="menu menu-hover">
-    <a href="#" class="button">Jono</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste,id FROM pages WHERE UserID='1'";
+<?php
+
+$sql = "SELECT Username, id FROM users";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
-   }
-}
-?>
- </ul>
-  </li>
-  <li class="menu menu-hover">
-     <a href="#" class="button">Donatos</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste, id FROM pages WHERE UserID='2'";
-$result = mysqli_query($conn, $sql);
+  
+    while($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <li class="menu menu-hover">
+        <?php
+       echo "<a href=\"'.#.'\" class=\"button\">".$row['Username']."</a>";
+       ?>
+       <ul class="submenu">
+  
+       <?php
 
-if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-        //    echo "<li><a href='details.php?id=".$row['id'].">".$row['Antraste']."</a></li>";
-        //     echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-
-        echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
-   }
+    $sql1 = "SELECT Antraste, id FROM pages WHERE UserID=".$row['id']."";
+       $result1 = mysqli_query($conn, $sql1);
+       
+       if(mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+                   // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
+                   echo "<li><a href=\"?id=".$row1['id']."\">".$row1['Antraste']."</a></li>";
+          }
+       }
+       ?>
+       </ul>
+       </li>
+       <?php
+    }
 }
-    
+       ?>
 
  
-?>
-   </ul>
-  </li>
-  <li class="menu menu-hover">
-     <a href="#" class="button">Mariaus</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste, id FROM pages WHERE UserID='3'";
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
-   }
-}
-?>
-    </ul>
-  </li>
-  <li class="menu menu-hover">
-     <a href="#" class="button">Karolio</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste, id FROM pages WHERE UserID='4'";
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
-   }
-}
-?>
-    </ul>
-  </li>
-  <li class="menu menu-hover">
-    <a href="#" class="button">Dainiaus</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste, id FROM pages WHERE UserID='5'";
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
-   }
-} 
-?>
-    </ul>
-  </li>
-  <li class="menu menu-hover">
-    <a href="#" class="button">Šaruno</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste, id FROM pages WHERE UserID='6'";
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
-   }
-} 
-?>
-    </ul>
-  </li>
-  <li class="menu menu-hover">
-    <a href="#" class="button">Nikolajaus</a>
-    <ul class="submenu">
-    <?php
-    $sql = "SELECT Antraste, id FROM pages WHERE UserID='7'";
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0) {
-   while($row = mysqli_fetch_assoc($result)) {
-            // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-            echo "<li><a href=\"?id=".$row['id']."\">".$row['Antraste']."</a></li>";
-   }
-}
-?>
-    </ul>
-  </li>
+        
   <li class="menu menu-right menu-click">
     <a class="button" href="<?= $Settings['url']?>login.php">Login</a>
   </li>
