@@ -68,8 +68,8 @@ if(isset($_POST['upload-page'])) {
   $_SESSION['slug'] = createSlug($_SESSION['pageID'].' '.$_SESSION['antraste']);
   
   unset($sql);
-  $sql ="INSERT INTO images (Pavadinimas, Nuoroda, PageID)
-  VALUES ('".$_SESSION['antraste']."', '".$target_file."', '".$_SESSION['pageID']."');";
+  $sql ="INSERT INTO images (Pavadinimas, Nuoroda, PageID, ImageID)
+  VALUES ('".$_SESSION['antraste']."', '".$target_file."', '".$_SESSION['pageID']."', '".$_SESSION['pageID']."');";
   
   if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
