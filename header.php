@@ -3,6 +3,7 @@ session_start();
 // include '../PhpConsole/__autoload.php';
 // PhpConsole\Helper::register(); // it will register global PC class
 include 'settings.php';
+include 'user-dir.php';
 
 $conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']);
 if (!$conn) {
@@ -15,7 +16,8 @@ if (!$conn) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css"> // papildoma reiks dadet kreipiantis i settingus, is Karolio, kurio userio direktorija,
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="<?=$user_directories[$_GET['User']]?>style.css"> // papildoma reiks dadet kreipiantis i settingus, is Karolio, kurio userio direktorija,
    
    
     <title>Home</title>
