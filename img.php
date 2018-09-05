@@ -7,7 +7,7 @@
 //echo '<br><br><br><br><br><br>';
 
 
-preg_match('/\[img=(\d+)\]/', $post, $id);
+if(preg_match('/\[img=(\d+)\]/', $post, $id)){
 
 
 //print_r($id);
@@ -23,6 +23,7 @@ if (mysqli_num_rows($result) > 0) {
    while($row = mysqli_fetch_assoc($result)) {
         $url = $row['Nuoroda'];
    }
+}
 }
 
 $url = $url ?? 'netrinti/Default.png';
