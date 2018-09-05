@@ -3,12 +3,14 @@ session_start();
 // include '../PhpConsole/__autoload.php';
 // PhpConsole\Helper::register(); // it will register global PC class
 include 'settings.php';
-include 'user-dir.php';
+
 
 $conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['dbPass'], $Settings['dbName']);
 if (!$conn) {
    die("Connection failed: " . mysqli_connect_error());
 }
+include 'user-dir.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,9 +72,9 @@ if(mysqli_num_rows($result) > 0) {
    <?php
    if(isset($_GET['id'])){
     // $sql = "SELECT ImageID FROM images WHERE id = {$_GET['id']}";
-    $sql = "SELECT ImageID FROM images WHERE i WHERE PageID = {$_GET['id']}";
+   // $sql = "SELECT ImageID FROM images WHERE i WHERE PageID";
 
-    $result2 = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+   // $result2 = mysqli_fetch_assoc(mysqli_query($conn, $sql));
     
 
 
@@ -85,9 +87,11 @@ if(mysqli_num_rows($result) > 0) {
             <br>
             <br>
             <?php
-            echo "<p>{$row['Turinys']}</p>";
-            include 'img.php';
+            $post = $row['Turinys'];
+            
 }
+include 'img.php';
+
 }
 
 

@@ -1,19 +1,19 @@
 <?php
 
-$post = "[img={$result2['ImageID']}]";
+//$post = "[img={$result2['ImageID']}]";
 
 // echo $post;
 
-echo '<br><br><br><br><br><br>';
+//echo '<br><br><br><br><br><br>';
 
 
 preg_match('/\[img=(\d+)\]/', $post, $id);
 
 
+//print_r($id);
 
 
-
-$sql = "SELECT * FROM images WHERE id = {$id[1]}";
+$sql = "SELECT * FROM images WHERE ImageId = {$id[1]}";
 
 
 $result = mysqli_query($conn, $sql);
@@ -24,8 +24,8 @@ if (mysqli_num_rows($result) > 0) {
         $url = $row['Nuoroda'];
    }
 }
-// var_dump($url);
 
+$url = $url ?? 'netrinti/Default.png';
 
 
 $img = $Settings['url'].'Admin/'.$url;
@@ -33,5 +33,5 @@ $img = $Settings['url'].'Admin/'.$url;
 
 $post = preg_replace('/\[img=(\d+)\]/', '<img src="'.$img.'">', $post);
 
-echo '<br><br>';
+//echo '<br><br>';
 echo $post;
