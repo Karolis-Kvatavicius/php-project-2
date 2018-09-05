@@ -9,29 +9,17 @@
     font-family: "Merriweather", sans-serif;
     line-height: 1.5;
   }
-  img{
-    width: 200px;
-    float: left;
-    margin: 5px 15px 0 0;
-  }
+
   a{
     color: purple;
     text-decoration: none;
     border: solid 2px lightgrey;
     padding: 5px 10px;
   }
-  a:hover{
-    color: red;
-  }
-  a:active{
-    font-weight: bold;
-  }
-  p a{
-    border: none;
-    padding: 0;
-  }
+ 
   article{
     padding: 35px 0;
+    background-color: lightgreen;
   }
   article:nth-child(1) p:nth-child(6){
     background-color: lightgrey;

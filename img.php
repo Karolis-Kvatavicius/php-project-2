@@ -26,7 +26,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 }
 
-$url = $url ?? 'netrinti/Default.png';
+$url = $url ?? 'images/netrinti/Default.png';
 
 
 $img = $Settings['url'].'Admin/'.$url;
