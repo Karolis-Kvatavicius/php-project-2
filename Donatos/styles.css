@@ -1,13 +1,10 @@
-*{
-    box-sizing: border-box;
-  }
-  main{
+
+  .main{
     width: 70%;
     margin: 0 auto;
     background-color: azure;
-  }
-  body{
     font-family: "Merriweather", sans-serif;
     line-height: 1.5;
+    box-sizing: border-box;
   }
 
