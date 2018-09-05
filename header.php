@@ -11,6 +11,22 @@ if (!$conn) {
 }
 include 'user-dir.php';
 
+// print_r($USER_DATA);
+// print_r($Settings);
+
+$UD = $Settings['url'].$USER_DATA['dir'];
+
+print_r($UD);
+
+// print_r(__DIR__.'/'.$USER_DATA['dir']);
+
+include __DIR__.'/'.$USER_DATA['dir'].'/projectSettings.php';
+
+// print_r($projectSettings);
+
+$CSS = $UD.$projectSettings['css']['stilius'];
+// print_r($CSS);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +35,7 @@ include 'user-dir.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="<?=$user_directories[$_GET['User']]?>styles.css">    
+    <link rel="stylesheet" href="<?= $CSS ?>">    
     <title>Home</title>
 </head>
 <body>
