@@ -84,8 +84,8 @@ include '../settings.php';
     reg_date TIMESTAMP
     );";
     if ($conn->multi_query($sql)) {
-        echo '<pre>';
-        var_dump($conn);
+        // echo '<pre>';
+        // var_dump($conn);
      } else {
         echo "Error creating database: " . mysqli_error($conn);
      }
