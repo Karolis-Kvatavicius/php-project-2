@@ -23,11 +23,19 @@ include '../settings.php';
 
     // delete tables if exist
     $sql = "DROP TABLE IF EXISTS Users;";
-    $sql .= "DROP TABLE IF EXISTS Pages;";
-    $sql .= "DROP TABLE IF EXISTS Images;";
+    $conn->query($sql);
+    unset($sql);
+
+    $sql = "DROP TABLE IF EXISTS Pages;";
+    $conn->query($sql);
+    unset($sql);
+
+    $sql = "DROP TABLE IF EXISTS Images;";
+    $conn->query($sql);
+    unset($sql);
   
     //create USERS table
-    $sql .= "CREATE TABLE Users (
+    $sql = "CREATE TABLE Users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Username VARCHAR(30) NOT NULL,
     Slaptazodis VARCHAR(30) NOT NULL,
@@ -46,9 +54,12 @@ include '../settings.php';
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
     VALUES ('Dainius', '123');";
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
-    VALUES ('Šarūnas', '123');";
+    VALUES ('Sarunas', '123');";
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
     VALUES ('Nikolajus', '123');";
+
+
+
 
     //create PAGES table
     $sql .= "CREATE TABLE Pages (
@@ -63,11 +74,17 @@ include '../settings.php';
     //create IMAGES table
     $sql .= "CREATE TABLE Images (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    UserID VARCHAR(50) UNIQUE NOT NULL,
     Pavadinimas VARCHAR(30) NOT NULL,
     Nuoroda TEXT NOT NULL,
     PageID INT(30) NOT NULL,
     ImageID INT(30) NOT NULL,
     reg_date TIMESTAMP
     );";
-    $conn->multi_query($sql);
-    // var_dump($conn);
+    if ($conn->multi_query($sql)) {
+        echo '<pre>';
+        var_dump($conn);
+     } else {
+        echo "Error creating database: " . mysqli_error($conn);
+     }
+     
