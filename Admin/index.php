@@ -14,8 +14,8 @@ include 'header.php';
 <textarea name="content" id="content" cols="100" rows="23"><?php echo $_SESSION['turinys'] ?></textarea>
 </div>
 <div id="currentPhoto">
-<p id="currentPage">Current page is: <?= $_SESSION['antraste'] ?></p>
-<p id="imageAdd">Current page photo:</p>
+<p id="currentPage">Current page is: <?= $_SESSION['antraste']?></p>
+<p id="imageAdd">Current page photo: id= <?=$_SESSION['imageID']?></p>
 <img src="<?= $_SESSION['nuoroda'] ?>" width="400px" height="220px" class="pagePhoto" alt="No image set or no page is selected.">
 <input type="submit" name="upload-page" value="Upload" id="upload">
 <input type="submit" name="update-page" value="Update" id="update">

@@ -7,6 +7,7 @@ $conn = mysqli_connect($Settings['servername'], $Settings['dbUser'], $Settings['
 $_SESSION['antraste'] = '';
 $_SESSION['turinys'] = '';
 $_SESSION['pageID'] = '';
+$_SESSION['imageID'] = '';
 $_SESSION['nuoroda'] = '';
 $_SESSION['slug'] = '';
 
@@ -33,12 +34,13 @@ if (isset($_GET['pageID'])) {
   unset($sql);
   unset($result);
 
-  $sql = "SELECT Nuoroda FROM images WHERE PageID='".$_SESSION['pageID']."';";
+  $sql = "SELECT Nuoroda, ImageID FROM images WHERE PageID='".$_SESSION['pageID']."';";
   $result = mysqli_query($conn, $sql);
 
   if(mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-        $_SESSION['nuoroda'] .= $row['Nuoroda'];   
+        $_SESSION['nuoroda'] .= $row['Nuoroda'];
+        $_SESSION['imageID'] .=  $row['ImageID'];   
     }
   } else {
     // echo "No title";
