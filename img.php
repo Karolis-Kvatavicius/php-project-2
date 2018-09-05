@@ -13,7 +13,7 @@ if(preg_match('/\[img=(\d+)\]/', $post, $id)){
 //print_r($id);
 
 
-$sql = "SELECT * FROM images WHERE ImageId = {$id[1]}";
+$sql = "SELECT * FROM images WHERE ImageId = {$id[1]} AND UserID = {$USER_DATA['UserID']}";
 
 
 $result = mysqli_query($conn, $sql);
