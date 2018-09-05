@@ -68,16 +68,16 @@ if(isset($_POST['upload-page'])) {
   $pageID = mysqli_fetch_assoc(mysqli_query($conn, $sql));
   $_SESSION['pageID'] = $pageID['id'];
   $_SESSION['slug'] = createSlug($_SESSION['pageID'].' '.$_SESSION['antraste']);
-  
   unset($sql);
-  $sql ="INSERT INTO images (UserID, Pavadinimas, Nuoroda, PageID, ImageID)
+
+  $sql = "INSERT INTO images (UserID, Pavadinimas, Nuoroda, PageID, ImageID)
   VALUES ('".$userID['id']."', '".$_SESSION['antraste']."', '".$target_file."', '".$_SESSION['pageID']."', '".$_SESSION['pageID']."');";
-  
   if (mysqli_query($conn, $sql)) {
      echo "New record created successfully";
   } else {
      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
+  unset($sql);
 
   $sql = "UPDATE pages SET Slug='".$_SESSION['slug']."' WHERE id=".$_SESSION['pageID'];
   if (mysqli_query($conn, $sql)) {
