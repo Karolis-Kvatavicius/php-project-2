@@ -54,7 +54,7 @@ include '../settings.php';
     $sql .= "CREATE TABLE Pages (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Antraste VARCHAR(100) NOT NULL,
-    Turinys TEXT NOT NULL,
+    Turinys LONGTEXT NOT NULL,
     UserID INT(30) NOT NULL,
     Slug VARCHAR(192) UNIQUE NOT NULL,
     reg_date TIMESTAMP
