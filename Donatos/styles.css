@@ -4,34 +4,10 @@
   main{
     width: 70%;
     margin: 0 auto;
+    background-color: azure;
   }
   body{
     font-family: "Merriweather", sans-serif;
     line-height: 1.5;
   }
 
-  a{
-    color: purple;
-    text-decoration: none;
-    border: solid 2px lightgrey;
-    padding: 5px 10px;
-  }
- 
-  article{
-    padding: 35px 0;
-    background-color: lightgreen;
-  }
-  article:nth-child(1) p:nth-child(6){
-    background-color: lightgrey;
-    padding: 15px;
-  }
-  article:nth-child(even){
-    background-color: black;
-    color: white;
-    padding: 15px
-  }
-  body article h2 + h3{
-    color: lightgrey;
-    font-size: "Open Sans";
-  }
-  
