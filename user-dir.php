@@ -26,7 +26,7 @@ foreach (new RecursiveIteratorIterator($di) as $filename => $file) {
     }
 }
 
-print_r($user_directories);
+//print_r($user_directories);
  
 // $user_directories[$_GET['User']];
 
