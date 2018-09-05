@@ -76,7 +76,7 @@ include '../settings.php';
     //create IMAGES table
     $sql .= "CREATE TABLE Images (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    UserID VARCHAR(50) UNIQUE NOT NULL,
+    UserID VARCHAR(50) NOT NULL,
     Pavadinimas VARCHAR(30) NOT NULL,
     Nuoroda TEXT NOT NULL,
     PageID INT(30) NOT NULL,
