@@ -57,6 +57,8 @@ include '../settings.php';
     VALUES ('Sarunas', '123');";
     $sql .= "INSERT INTO Users (Username, Slaptazodis)
     VALUES ('Nikolajus', '123');";
+    $sql .= "INSERT INTO Users (Username, Slaptazodis)
+    VALUES ('Arvydas', '123');";
 
 
 
