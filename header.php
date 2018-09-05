@@ -48,7 +48,7 @@ if(mysqli_num_rows($result) > 0) {
        if(mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
                    // echo "<li><a href=".'#'.">".$row['Antraste']."</a></li>";
-                   echo "<li><a href=\"?id=".$row1['id']."&User=".$row['Username']."\">".$row1['Antraste']."</a></li>";
+                   echo "<li><a href=\"?id=".$row1['id']."\">".$row1['Antraste']."</a></li>";
           }
        }
        ?>
