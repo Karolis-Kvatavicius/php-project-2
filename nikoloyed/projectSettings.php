@@ -1,7 +1,7 @@
 <?php
 $projectSettings =
 [
-'css' => ['stilius' => 'css/styles.css'],
+'css' => ['stilius' => 'css/style.css'],
 
 ];
 ?>
