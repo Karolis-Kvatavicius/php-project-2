@@ -11,12 +11,14 @@ if (!$conn) {
 }
 include 'user-dir.php';
 
+if(isset($USER_DATA)){
+
 // print_r($USER_DATA);
 // print_r($Settings);
 
 $UD = $Settings['url'].$USER_DATA['dir'];
 
-print_r($UD);
+// print_r($UD);
 
 // print_r(__DIR__.'/'.$USER_DATA['dir']);
 
@@ -26,7 +28,7 @@ include __DIR__.'/'.$USER_DATA['dir'].'/projectSettings.php';
 
 $CSS = $UD.$projectSettings['css']['stilius'];
 // print_r($CSS);
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
