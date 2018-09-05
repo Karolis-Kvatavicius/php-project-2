@@ -7,7 +7,7 @@ $user_name = [];
 $user_path = [];
 
 
-$sql = "SELECT UserID, Username FROM pages INNER JOIN users ON pages.UserID=users.id WHERE pages.id=".$_GET['id']??0;
+$sql = "SELECT UserID, Username FROM pages INNER JOIN users ON pages.UserID=users.id WHERE pages.id=".($_GET['id']??0);
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {
