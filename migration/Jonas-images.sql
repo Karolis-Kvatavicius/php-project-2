@@ -1,2 +1,2 @@
 INSERT INTO Images (Nuoroda, PageId, ImageID, UserId ) 
-        VALUES ('images/desktop.jpg', '1', '1', '2');
+        VALUES ('images/krokodilas.jpg', '1', '1', '1');
