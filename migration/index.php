@@ -34,14 +34,30 @@ if (isset($_GET['do']) && $_GET['do'] == 'export') {
 
     file_put_contents($_SESSION['username'].'-pages.sql', $t_1);
 
-    // $t_1 = '';
+    
+    $sql = "SELECT * FROM Images";
 
-    // foreach ($t_0 as $val) {
-    //     $t_1 .= "INSERT INTO Pages (Nuoroda, PageId, ImageID) 
-    //     VALUES ('".addslashes($val['Nuoroda'])."', '".addslashes($val['PageId'])."', '".addslashes($val['ImageID'])."');";
-    // }
+    $result = $conn->query($sql);
+    $t_0 = [];
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $t_0[] = $row;
+        }
+    } 
+    else {
+        echo "Table is empty";
+    }
+    
+    //print_r($t_0);
+    
+    $t_1 = '';
 
-    //file_put_contents($_SESSION['username'].'-images.sql', $t_1);
+    foreach ($t_0 as $val) {
+        $t_1 .= "INSERT INTO Images (Nuoroda, PageId, ImageID, UserId ) 
+        VALUES ('".addslashes($val['Nuoroda'])."', '".addslashes($val['PageID'])."', '".addslashes($val['ImageID'])."', '".addslashes($val['UserID'])."');";
+    }
+
+    file_put_contents($_SESSION['username'].'-images.sql', $t_1);
 
 
 
@@ -50,6 +66,8 @@ if (isset($_GET['do']) && $_GET['do'] == 'export') {
 if (isset($_GET['do']) && $_GET['do'] == 'import') {
 
     $t_2 = file_get_contents($_GET['file']);
+    $t_2 .= file_get_contents(str_replace('-pages', '-images', $_GET['file']));
+
 
     if ($conn->multi_query($t_2) === TRUE) {
         echo "{$_GET['file']} added successfully";
