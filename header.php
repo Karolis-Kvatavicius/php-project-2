@@ -16,7 +16,7 @@ include 'user-dir.php';
 
 $UD = $Settings['url'].$USER_DATA['dir'];
 
-print_r($UD);
+// print_r($UD);
 
 // print_r(__DIR__.'/'.$USER_DATA['dir']);
 
